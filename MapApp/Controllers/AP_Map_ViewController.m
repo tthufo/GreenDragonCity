@@ -424,7 +424,7 @@
                                                  @"method":@"GET"
                                                  } withCache:^(NSString *cacheString) {
                                                      
-                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
                                                      
                                                      if([errorCode isEqualToString:@"200"])
                                                      {
@@ -435,7 +435,7 @@
                                                                                                       @"method":@"GET"
                                                                                                       } withCache:^(NSString *cacheString) {
 
-                                                                                                      } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                                                                      } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
 
                                                                                                           if([errorCode isEqualToString:@"200"])
                                                                                                           {
@@ -471,7 +471,7 @@
 //                                                     @"overrideLoading":@(1)
                                                      } withCache:^(NSString *cacheString) {
                                                          
-                                                     } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                     } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
                                                          
                                                          [self hideSVHUD];
                                                          
@@ -566,7 +566,7 @@
                                                  @"postFix":@"point/lo"
                                                  } withCache:^(NSString *cacheString) {
                                                      
-                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
                                                      
                                                      [indicator stopAnimating];
 
@@ -606,7 +606,7 @@
                                                  @"overrideLoading":@(1)
                                                  } withCache:^(NSString *cacheString) {
                                                      
-                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
                                                      
                                                      if([errorCode isEqualToString:@"200"])
                                                      {
@@ -665,7 +665,7 @@
                                                  @"overrideLoading":@(1)
                                                  } withCache:^(NSString *cacheString) {
                                                      
-                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
                                                      
                                                      if([errorCode isEqualToString:@"200"])
                                                      {
@@ -1042,7 +1042,7 @@
                                                  @"overrideAlert":@(1)
                                                  } withCache:^(NSString *cacheString) {
                                                      
-                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
                                                      
                                                      if(![errorCode isEqualToString:@"200"])
                                                      {

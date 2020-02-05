@@ -144,7 +144,7 @@ static E_Overlay_Menu * shareInstance = nil;
                                     } mutableCopy];
 
     [[LTRequest sharedInstance] didRequestInfo:dict withCache:^(NSString *cacheString) {
-    } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+    } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
         
         if(!responseString)
         {

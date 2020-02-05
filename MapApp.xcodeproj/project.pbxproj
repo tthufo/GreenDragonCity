@@ -488,7 +488,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MapApp/Pods-MapApp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MapApp/Pods-MapApp-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
@@ -499,7 +499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapApp/Pods-MapApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MapApp/Pods-MapApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CEF7CD7865554AA3923E12EA /* [CP] Check Pods Manifest.lock */ = {
@@ -696,9 +696,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Huy Nguyen (S6X8K9KLV3)";
+				CODE_SIGN_IDENTITY = "Apple Development: Huy Nguyen (S6X8K9KLV3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -707,9 +707,9 @@
 				);
 				GCC_PREFIX_HEADER = MapApp/PrefixHeader.pch;
 				INFOPLIST_FILE = MapApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = vn.3dart.bluedragon;
 				PRODUCT_NAME = "Green Dragon";
 				PROVISIONING_PROFILE = "2a826cdd-01ac-4c5b-aefc-bdda775b99da";
@@ -727,9 +727,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: 3D ART DESIGN CONSULTANCY AND TECHNOLOGY SOLUTION JOINT STOCK COMPANY (3L2APQ2D3U)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: 3D ART DESIGN CONSULTANCY AND TECHNOLOGY SOLUTION JOINT STOCK COMPANY (3L2APQ2D3U)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -738,9 +738,9 @@
 				);
 				GCC_PREFIX_HEADER = MapApp/PrefixHeader.pch;
 				INFOPLIST_FILE = MapApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = vn.3dart.bluedragon;
 				PRODUCT_NAME = "Green Dragon";
 				PROVISIONING_PROFILE = "2a826cdd-01ac-4c5b-aefc-bdda775b99da";

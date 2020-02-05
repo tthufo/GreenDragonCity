@@ -53,7 +53,7 @@
     {
         topBar.constant = newOrientation == UIInterfaceOrientationPortrait ? 48 : 44;
         
-        self.topHeight = [self isIphoneX] ? @"92" : newOrientation == UIInterfaceOrientationPortrait ? @"88" : @"64";
+        self.topHeight = [self isIphoneX] ? @"92" : newOrientation == UIInterfaceOrientationPortrait ? @"68" : @"68";
     }
     else
     {
@@ -65,8 +65,10 @@
     
     self.delegate = self;
     
-    tabsName = @[@"THÔNG TIN", @"ẢNH 3D", @"ẢNH TIẾN ĐỘ", @"VIDEO", @"TÀI LIỆU DỰ ÁN", @"TRẢI NGHIỆM 360"];
+//    tabsName = @[@"THÔNG TIN", @"ẢNH 3D", @"ẢNH TIẾN ĐỘ", @"VIDEO", @"TÀI LIỆU DỰ ÁN", @"TRẢI NGHIỆM 360"];
     
+    tabsName = @[@"THÔNG TIN", @"ẢNH 3D", @"VIDEO", @"TÀI LIỆU DỰ ÁN", @"TRẢI NGHIỆM 360"];
+
 //    tabsName = @[@"Thông tin"];
 
     
@@ -125,7 +127,9 @@
     
     info.pointInfo = linkInfo;
     
-    controllers = [@[web, options, gallery, video, info, link] mutableCopy];
+//    controllers = [@[web, options, gallery, video, info, link] mutableCopy];
+
+    controllers = [@[web, options, video, info, link] mutableCopy];
     
 //    controllers = [@[web] mutableCopy];
     
@@ -140,7 +144,7 @@
         [self selectTabAtIndex:[self.indexSelected integerValue] + 1];
     }];
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(OrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(OrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 -(void)OrientationDidChange:(NSNotification*)notification

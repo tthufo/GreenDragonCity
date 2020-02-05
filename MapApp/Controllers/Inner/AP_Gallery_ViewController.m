@@ -48,6 +48,10 @@
     }
     
     NSLog(@"%@", info);
+    
+    if ([dataList count] == 0) {
+        [self showToast:@"Hiện tại chưa có ảnh, mời bạn thử lại sau" andPos:0];
+    }
         
     [collectionView withCell:@"AP_Gallery"];
     

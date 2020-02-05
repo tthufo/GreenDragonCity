@@ -32,12 +32,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>GreenDragon cần truy cập vị trí của bạn cho việc định vị vùng thời tiết nhanh chóng nhất</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>DAMEVA cần sử dụng vị trí hiện tại của bạn cho việc hiển thị vị trí cụ thể theo cung tuổi và giới tính phục vụ việc lựa chọn vị trí lô đất phù hợp nhất</string>
+	<string>GreenDragon cần sử dụng vị trí hiện tại của bạn cho việc hiển thị vị trí cụ thể theo cung tuổi và giới tính phục vụ việc lựa chọn vị trí lô đất phù hợp nhất</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>DAMEVA cần sử dụng vị trí hiện tại của bạn cho việc hiển thị vị trí cụ thể theo cung tuổi và giới tính phục vụ việc lựa chọn vị trí lô đất phù hợp nhất</string>
+	<string>GreenDragon cần sử dụng vị trí hiện tại của bạn cho việc hiển thị vị trí cụ thể theo cung tuổi và giới tính phục vụ việc lựa chọn vị trí lô đất phù hợp nhất</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>DAMEVA cần sử dụng Micro của bạn</string>
+	<string>GreenDragon cần sử dụng Micro của bạn</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -50,8 +52,6 @@
 	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>

@@ -91,21 +91,21 @@
 //        return UIInterfaceOrientationMaskPortrait;
 //    }
     
-    if(((UIView*)[[[UIApplication sharedApplication]windows]objectAtIndex:0].subviews.lastObject).tag == 999999)
-    {
-        UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-
-        if(interfaceOrientation == 4 || interfaceOrientation == 3)
-        {
-            return UIInterfaceOrientationMaskLandscape;
-        }
-        else {
+//    if(((UIView*)[[[UIApplication sharedApplication]windows]objectAtIndex:0].subviews.lastObject).tag == 999999)
+//    {
+//        UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+//
+//        if(interfaceOrientation == 4 || interfaceOrientation == 3)
+//        {
+//            return UIInterfaceOrientationMaskLandscape;
+//        }
+//        else {
             return UIInterfaceOrientationMaskPortrait;
-
-        }
-    }
-
-    return UIInterfaceOrientationMaskAll;
+//
+//        }
+//    }
+//
+//    return UIInterfaceOrientationMaskAll;
 }
 
 - (UIViewController *)topMostController

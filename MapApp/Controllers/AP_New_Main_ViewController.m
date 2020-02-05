@@ -70,7 +70,7 @@
                                                  @"overrideAlert":@(1)
                                                  } withCache:^(NSString *cacheString) {
                                                      
-                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
+                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
                                                      
                                                      if(![errorCode isEqualToString:@"200"])
                                                      {

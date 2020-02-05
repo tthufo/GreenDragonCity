@@ -49,7 +49,7 @@
 
 #define APIMAP @"AIzaSyBXBWoCCozdvmjRABdP_VfDiPAsSU1WS2Q"//
 
-#import "FBPlugInHeader.h"
+#import "AllPlugInHeader.h"
 
 #import "ObjectInfo.h"
 
