@@ -1120,9 +1120,15 @@
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker;
 {
+    NSMutableDictionary * markerInfo = [[marker.accessibilityLabel objectFromJSONString] reFormat];
+
+    if ([[markerInfo getValueFromKey:@"is_tienick"] isEqualToString:@"1"]) {
+        return;
+    }
+    
     AP_Web_ViewController * web = [AP_Web_ViewController new];
     
-    web.info = [[marker.accessibilityLabel objectFromJSONString] reFormat];
+    web.info = markerInfo;
     
     [self.navigationController pushViewController:web animated:YES];
 }
@@ -1202,6 +1208,8 @@
     
     UILabel * des = ((UILabel*)[self withView:view tag:12]);
     
+    UIButton * detail = ((UIButton*)[self withView:view tag:16]);
+    
     if(marker == polyMarker)
     {
         ((UILabel*)[self withView:view tag:10]).text = [NSString stringWithFormat:@"Lô: %@", [markerInfo getValueFromKey:@"ten_lo"]];
@@ -1214,23 +1222,31 @@
         
         [string setColorForText:[self status:[markerInfo getValueFromKey:@"tinh_trang_id"]][@"status"] withColor:[self status:[markerInfo getValueFromKey:@"tinh_trang_id"]][@"color"]];
         
-        des.attributedText = string;
+        if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"]) {
+            des.text = @"";
+        } else {
+            des.attributedText = string;
+        }
+        
+        detail.hidden = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"];
     }
     else if(marker == searchMarker)
     {
         ((UILabel*)[self withView:view tag:10]).text = [NSString stringWithFormat:@"%@", [markerInfo getValueFromKey:@"text"]];
         
 //        [(UIImageView*)[self withView:view tag:11] imageUrl:[markerInfo[@"images"] firstObject]];
+        detail.hidden = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"];
 
-        des.text = [markerInfo getValueFromKey:@"description"];
+        des.text = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"] ? @"" : [markerInfo getValueFromKey:@"description"];
     }
     else
     {
         ((UILabel*)[self withView:view tag:10]).text = [NSString stringWithFormat:@"%@", [markerInfo getValueFromKey:@"name"]];
         
 //        [(UIImageView*)[self withView:view tag:11] imageUrl:[markerInfo[@"images"] firstObject]];
+        detail.hidden = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"];
 
-        des.text = [markerInfo getValueFromKey:@"description"];
+        des.text = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"] ? @"" : [markerInfo getValueFromKey:@"description"];
     }
     
     marker.tracksInfoWindowChanges = YES;
