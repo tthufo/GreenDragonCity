@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription </key>
+	<string>GreenDragon cần truy Bộ sưu tập hình ảnh của bạn cho việc cập nhật hình ảnh</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>GreenDragon cần sử dung BlueTooth của bạn</string>
 	<key>NSContactsUsageDescription</key>

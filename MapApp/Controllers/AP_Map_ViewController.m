@@ -1122,7 +1122,7 @@
 {
     NSMutableDictionary * markerInfo = [[marker.accessibilityLabel objectFromJSONString] reFormat];
 
-    if ([[markerInfo getValueFromKey:@"is_tienick"] isEqualToString:@"1"]) {
+    if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"]) {
         return;
     }
     
@@ -1200,8 +1200,12 @@
         {
             indexing = 1;
         }
+        
+        if(![[markerInfo getValueFromKey:@"anh_tienich"] isEqualToString: @""]) {
+            indexing = 0;
+        }
     }
-    
+        
     UIView * view = [[NSBundle mainBundle] loadNibNamed:@"Annotation" owner:nil options:nil][indexing];
     
     ((UIView*)[self withView:view tag:15]).transform = CGAffineTransformMakeRotation(150);
@@ -1212,7 +1216,7 @@
     
     if(marker == polyMarker)
     {
-        ((UILabel*)[self withView:view tag:10]).text = [NSString stringWithFormat:@"Lô: %@", [markerInfo getValueFromKey:@"ten_lo"]];
+        ((UILabel*)[self withView:view tag:10]).text = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"] ? [markerInfo getValueFromKey:@"ten_lo"] : [NSString stringWithFormat:@"Lô: %@", [markerInfo getValueFromKey:@"ten_lo"]];
         
         NSString * condition = [markerInfo getValueFromKey:@"tinh_trang_id"];
         
@@ -1222,6 +1226,14 @@
         
         [string setColorForText:[self status:[markerInfo getValueFromKey:@"tinh_trang_id"]][@"status"] withColor:[self status:[markerInfo getValueFromKey:@"tinh_trang_id"]][@"color"]];
         
+//        if (((NSArray*)markerInfo[@"images"]).count != 0) {
+//            [(UIImageView*)[self withView:view tag:11] imageUrl:[markerInfo[@"images"] firstObject]];
+//        }
+        
+//        if(![[markerInfo getValueFromKey:@"anh_tienich"] isEqualToString: @""]) {
+//            [(UIImageView*)[self withView:view tag:11] imageUrl: markerInfo[@"anh_tienich"]];
+//        }
+                
         if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"]) {
             des.text = @"";
         } else {
@@ -1257,11 +1269,15 @@
     
     if(indexing == 0)
     {
-        [view setWidth:230 animated:NO];
+        [view setWidth:330 animated:NO];
+    }
+    
+    if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"]) {
+        ((UILabel*)[self withView:view tag:10]).textColor = [UIColor orangeColor];
     }
 
     if(indexing == 0)
-        [(UIImageView*)[self withView:view tag:100] imageUrl:[markerInfo[@"images"] firstObject][@"image_path"]];
+        [(UIImageView*)[self withView:view tag:100] imageUrl:[markerInfo getValueFromKey:@"anh_tienich"]];
     
     return view;
 }
