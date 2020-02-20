@@ -157,8 +157,6 @@
 
 - (void)imageUrl:(NSString*)url
 {
-    NSLog(@"=====%@", url);
-
     [(UIImageView*)self sd_setImageWithURL:[NSURL URLWithString:[[url isEqual:[NSNull null]] ? @"" : url encodeUrl]] placeholderImage:kAvatar completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 
         if (error) return;

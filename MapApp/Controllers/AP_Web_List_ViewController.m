@@ -14,7 +14,7 @@
 {
     IBOutlet NSLayoutConstraint * topBar;
 
-    IBOutlet UIWebView * webView;
+    IBOutlet WKWebView * webView;
     
     IBOutlet UILabel * titleLabel;
 }

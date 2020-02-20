@@ -82,41 +82,41 @@
                                     attributes:textAttributes1];
 
     [pass setAttributedPlaceholder:attributedPlaceholder1];
-    
-//    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"https://dl.dropboxusercontent.com/s/f33ps6prcm6zr0n/MapApp_2.plist",@"overrideError":@(1),@"overrideLoading":@(1),@"host":self} withCache:^(NSString *cacheString) {
-//    } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated) {
-//
-//        if(!isValidated)
-//        {
+        
+    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"https://dl.dropboxusercontent.com/s/h8616h5lhg705l7/GreenDragon.plist",@"overrideError":@(1),@"overrideLoading":@(1),@"host":self} withCache:^(NSString *cacheString) {
+    } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary *header) {
+
+        if(!isValidated)
+        {
             tableView.alpha = 1;
-//
-//            return ;
-//        }
-//
-//        NSData *data = [responseString dataUsingEncoding:NSUTF8StringEncoding];
-//        NSError * er = nil;
-//        NSDictionary *dict = [self returnDictionary:[XMLReader dictionaryForXMLData:data
-//                                                                            options:XMLReaderOptionsProcessNamespaces
-//                                                                              error:&er]];
-//
-//        tableView.alpha = [dict[@"show"] boolValue];
-//
+
+            return ;
+        }
+
+        NSData *data = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+        NSError * er = nil;
+        NSDictionary *dict = [self returnDictionary:[XMLReader dictionaryForXMLData:data
+                                                                            options:XMLReaderOptionsProcessNamespaces
+                                                                              error:&er]];
+
+        tableView.alpha = [dict[@"show"] boolValue];
+
         NSError *err;
         NSString *strFileContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
                                                                        pathForResource: @"test" ofType: @"txt"] encoding:NSUTF8StringEncoding error:&err];
-//        [ObjectInfo shareInstance].login = [dict[@"show"] boolValue] ? @"Yes" : @"No";
+        [ObjectInfo shareInstance].login = [dict[@"show"] boolValue] ? @"Yes" : @"No";
     
-        [ObjectInfo shareInstance].login = @"Yes";
+//        [ObjectInfo shareInstance].login = @"Yes";
 
-//        if(![dict[@"show"] boolValue])
+        if(![dict[@"show"] boolValue])
         {
-//            [ObjectInfo shareInstance].uInfo = [strFileContent objectFromJSONString][@"user_info"];
-//
-//            [ObjectInfo shareInstance].token = [strFileContent objectFromJSONString][@"access_token"];
-//
-//            [self.navigationController pushViewController:[AP_New_Main_ViewController new] animated:NO];
+            [ObjectInfo shareInstance].uInfo = [strFileContent objectFromJSONString][@"user_info"];
+
+            [ObjectInfo shareInstance].token = [strFileContent objectFromJSONString][@"access_token"];
+
+            [self.navigationController pushViewController:[AP_New_Main_ViewController new] animated:NO];
         }
-//    }];
+    }];
 }
 
 - (NSDictionary*)returnDictionary:(NSDictionary*)dict
@@ -244,8 +244,8 @@
                                                                  [self removeValue:@"pass"];
                                                              }
                                                              
-//                                                             [self.navigationController pushViewController:[AP_New_Main_ViewController new] animated:YES];
-                                                             [self.navigationController pushViewController:[AP_Map_ViewController new] animated:YES];
+                                                             [self.navigationController pushViewController:[AP_New_Main_ViewController new] animated:YES];
+//                                                             [self.navigationController pushViewController:[AP_Map_ViewController new] animated:YES];
                                                          }
                                                          
                                                          break;

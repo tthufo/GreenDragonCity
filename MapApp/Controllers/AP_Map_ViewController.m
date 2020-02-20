@@ -419,9 +419,13 @@
 
 - (void)didRequestPositionInfo:(NSString*)loId andLat:(float)lat andLng:(float)lng
 {
-    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":[NSString stringWithFormat:@"point/lo/info/%@", loId],
+//    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":[NSString stringWithFormat:@"point/lo/info/%@", loId],
+    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":@"point/lo",
+                                                 @"lat":@(lat),
+                                                 @"lng":@(lng),
                                                  @"overrideAlert":@(1),
-                                                 @"method":@"GET"
+//                                                 @"method":@"GET",
+                                                 @"postFix": @"point/lo"
                                                  } withCache:^(NSString *cacheString) {
                                                      
                                                  } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
@@ -1205,7 +1209,7 @@
             indexing = 0;
         }
     }
-        
+            
     UIView * view = [[NSBundle mainBundle] loadNibNamed:@"Annotation" owner:nil options:nil][indexing];
     
     ((UIView*)[self withView:view tag:15]).transform = CGAffineTransformMakeRotation(150);
@@ -1277,7 +1281,12 @@
     }
 
     if(indexing == 0)
-        [(UIImageView*)[self withView:view tag:100] imageUrl:[markerInfo getValueFromKey:@"anh_tienich"]];
+    {
+        if (((NSArray*)markerInfo[@"images"]).count != 0) {
+            [(UIImageView*)[self withView:view tag:100] imageUrl:[markerInfo[@"images"] firstObject][@"image_path"]];
+        }
+    }
+//        [(UIImageView*)[self withView:view tag:100] imageUrl:[markerInfo getValueFromKey:@"anh_tienich"]];
     
     return view;
 }

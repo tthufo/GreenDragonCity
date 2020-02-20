@@ -16,6 +16,8 @@
 
 #import "AP_Web_List_ViewController.h"
 
+#import "AVHexColor.h"
+
 @interface AP_New_Main_ViewController ()
 {
     IBOutlet UITableView * tableView;
@@ -33,9 +35,33 @@
 {
     [super viewDidLoad];
     
-    dataList = [@[@{@"img":@"icon tranh chinh", @"title":@"TRANG CHỦ"}, @{@"img":@"icon anh", @"title":@"ẢNH"}, @{@"img":@"icon video", @"title":@"VIDEOS"}, @{@"img":@"icon phong thuy", @"title":@"TRẢI NGHIỆM 360"}, @{@"img":@"icon tin tuc", @"title":@"TIN TỨC"}] mutableCopy];
+    dataList = [@[
+        @{@"img":@"home_xanh", @"title":@"TRANG CHỦ",
+          @"img_down":@"home_trang",
+          @"title_down":@"#00783C",
+          @"title_up":@"#ffffff"},
+  @{@"img":@"image_xanh", @"title":@"ẢNH",
+    @"img_down":@"image_trang",
+    @"title_down":@"#00783C",
+    @"title_up":@"#ffffff"
+  },
+  @{@"img":@"video_xanh", @"title":@"VIDEOS",
+    @"img_down":@"video_trang",
+    @"title_down":@"#00783C",
+    @"title_up":@"#ffffff"
+  },
+  @{@"img":@"360_xanh", @"title":@"TRẢI NGHIỆM 360",
+    @"img_down":@"360_trang",
+    @"title_down":@"#00783C",
+    @"title_up":@"#ffffff"
+  },
+  @{@"img":@"folder_xanh", @"title":@"TÀI LIỆU BÁN HÀNG",
+    @"img_down":@"folder_trang",
+    @"title_down":@"#00783C",
+    @"title_up":@"#ffffff"
+  }] mutableCopy];
     
-    [tableView withCell:@"E_Main_Menu"];
+    [tableView withCell:@"E_Main_Button_View"];
     
     logOut.alpha = [[ObjectInfo shareInstance].login isEqualToString:@"Yes"];
     
@@ -87,6 +113,38 @@
                                                  }];
 }
 
+- (void)didPressRow:(NSDictionary*)dict andIndex:(int) indexing {
+        AP_List_ViewController * list = [AP_List_ViewController new];
+        
+        list.label = dict[@"title"];
+
+        switch (indexing)
+        {
+            case 0:
+                [self.navigationController pushViewController:[AP_Map_ViewController new] animated:YES];
+                break;
+            case 1:
+                [self didPressImages];
+                break;
+            case 3:
+            {
+                AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+
+                web.url = @"http://3dartvn.com/submission/dameva%20residences/360/16-3-2019/";
+
+                web.label = dict[@"title"];
+
+                [self.navigationController pushViewController:web animated:YES];
+            }
+                break;
+            case 2:
+            case 4:
+                [self.navigationController pushViewController:list animated:YES];
+                break;
+            default:
+                break;
+        }
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -95,13 +153,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier:@"E_Main_Menu" forIndexPath: indexPath];
+    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier:@"E_Main_Button_View" forIndexPath: indexPath];
     
     NSDictionary * dict = dataList[indexPath.row];
+
+    UIImageView * ava = ((UIImageView*)[self withView:cell tag:11]);
     
-    ((UIImageView*)[self withView:cell tag:11]).image = [UIImage imageNamed:dict[@"img"]];
+    ava.image = [UIImage imageNamed:dict[@"img"]];
+
+    UILabel * titles = ((UILabel*)[self withView:cell tag:12]);
     
-    ((UILabel*)[self withView:cell tag:12]).text = dict[@"title"];
+    titles.text = dict[@"title"];
+    
+    UIButton * menu = ((UIButton*)[self withView:cell tag:10]);
+    
+    [menu actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+        menu.backgroundColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
+        ava.image = [UIImage imageNamed:dict[@"img"]];
+        ava.image = [UIImage imageNamed:dict[@"img"]];
+        titles.textColor = [AVHexColor colorWithHexString:dict[@"title_down"]];
+        [self didPressRow:dict andIndex:indexPath.row];
+    }];
+    
+    [menu actionForTouchDown:@{} and:^() {
+        menu.backgroundColor = [AVHexColor colorWithHexString:dict[@"title_down"]];
+        ava.image = [UIImage imageNamed:dict[@"img_down"]];
+        titles.textColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
+    }];
 
     return cell;
 }
@@ -113,40 +191,47 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSDictionary * dict = dataList[indexPath.row];
-
-    AP_List_ViewController * list = [AP_List_ViewController new];
+//    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+//    ((UIImageView*)[self withView:cell tag:11]).image = [UIImage imageNamed:@""];
     
-    list.label = dict[@"title"];
+//    ((UILabel*)[self withView:cell tag:12]).text = @"haiba";
+    
+    
+//    NSDictionary * dict = dataList[indexPath.row];
 
-    switch (indexPath.row)
-    {
-        case 0:
-            [self.navigationController pushViewController:[AP_Map_ViewController new] animated:YES];
-            break;
-        case 1:
-            [self didPressImages];
-            break;
-        case 3:
-        {
-            AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
-            
-            web.url = @"http://3dartvn.com/submission/dameva%20residences/360/16-3-2019/";
-            
-            web.label = dict[@"title"];
-            
-            [self.navigationController pushViewController:web animated:YES];
-        }
-            break;
-        case 2:
-        case 4:
-            [self.navigationController pushViewController:list animated:YES];
-            break;
-        default:
-            break;
-    }
+//    AP_List_ViewController * list = [AP_List_ViewController new];
+//
+//    list.label = dict[@"title"];
+//
+//    switch (indexPath.row)
+//    {
+//        case 0:
+////            [self.navigationController pushViewController:[AP_Map_ViewController new] animated:YES];
+//            break;
+//        case 1:
+////            [self didPressImages];
+//            break;
+//        case 3:
+//        {
+//            AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+//
+//            web.url = @"http://3dartvn.com/submission/dameva%20residences/360/16-3-2019/";
+//
+//            web.label = dict[@"title"];
+//
+////            [self.navigationController pushViewController:web animated:YES];
+//        }
+//            break;
+//        case 2:
+//        case 4:
+////            [self.navigationController pushViewController:list animated:YES];
+//            break;
+//        default:
+//            break;
+//    }
 }
 
 @end

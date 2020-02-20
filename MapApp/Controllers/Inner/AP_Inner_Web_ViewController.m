@@ -8,9 +8,11 @@
 
 #import "AP_Inner_Web_ViewController.h"
 
+#import <WebKit/WebKit.h>
+
 @interface AP_Inner_Web_ViewController ()
 {
-    IBOutlet UIWebView * webView;
+    IBOutlet WKWebView * webView;
 }
 
 @end
@@ -41,7 +43,9 @@
 
 - (NSString*)html:(NSString*)text
 {
-    return [NSString stringWithFormat:@"<html>%@</html>", text];
+    NSString *headerString = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.1, maximum-scale=1.1, minimum-scale=1.1, user-scalable=no'></header>";
+
+    return [headerString stringByAppendingString:[NSString stringWithFormat:@"<html>%@</html>", text]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,28 +53,28 @@
     [super didReceiveMemoryWarning];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    [self showSVHUD:@"Đang tải" andOption:0];
-    
-    return YES;
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [self hideSVHUD];
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    [self hideSVHUD];
-    
-    [self showToast:@"Lỗi xảy ra, mời bạn thử lại" andPos:0];
-}
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
+//    [self showSVHUD:@"Đang tải" andOption:0];
+//
+//    return YES;
+//}
+//
+//- (void)webViewDidStartLoad:(UIWebView *)webView
+//{
+//
+//}
+//
+//- (void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    [self hideSVHUD];
+//}
+//
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+//{
+//    [self hideSVHUD];
+//
+//    [self showToast:@"Lỗi xảy ra, mời bạn thử lại" andPos:0];
+//}
 
 @end

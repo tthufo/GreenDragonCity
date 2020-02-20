@@ -61,6 +61,7 @@
 		FCAA3AAA2223C6B7007F0E43 /* AP_Gallery_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA3AA82223C6B7007F0E43 /* AP_Gallery_ViewController.m */; };
 		FCAA3AAB2223C6B7007F0E43 /* AP_Gallery_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCAA3AA92223C6B7007F0E43 /* AP_Gallery_ViewController.xib */; };
 		FCB4B336227B5C0600E12AAE /* E_Main_Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB4B335227B5C0600E12AAE /* E_Main_Menu.xib */; };
+		FCC4BA8C23FE7C7300F336F4 /* E_Main_Button_View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC4BA8B23FE7C7300F336F4 /* E_Main_Button_View.xib */; };
 		FCD3959E225F1150008EF781 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3959C225F114E008EF781 /* LBYouTubeExtractor.m */; };
 		FCD395C1225F3CE1008EF781 /* XCDYouTubeDashManifestXML.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD395AB225F3CB0008EF781 /* XCDYouTubeDashManifestXML.m */; };
 		FCD395C2225F3CE1008EF781 /* XCDYouTubePlayerScript.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD395AE225F3CB7008EF781 /* XCDYouTubePlayerScript.m */; };
@@ -161,6 +162,7 @@
 		FCAA3AA82223C6B7007F0E43 /* AP_Gallery_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AP_Gallery_ViewController.m; sourceTree = "<group>"; };
 		FCAA3AA92223C6B7007F0E43 /* AP_Gallery_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AP_Gallery_ViewController.xib; sourceTree = "<group>"; };
 		FCB4B335227B5C0600E12AAE /* E_Main_Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = E_Main_Menu.xib; sourceTree = "<group>"; };
+		FCC4BA8B23FE7C7300F336F4 /* E_Main_Button_View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = E_Main_Button_View.xib; sourceTree = "<group>"; };
 		FCD3959C225F114E008EF781 /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
 		FCD3959D225F1150008EF781 /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
 		FCD395AA225F3CAF008EF781 /* XCDYouTubePlayerScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDYouTubePlayerScript.h; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				FC8F7CE6227B55520041036E /* AP_New_Main_ViewController.m */,
 				FC8F7CE7227B55520041036E /* AP_New_Main_ViewController.xib */,
 				FCB4B335227B5C0600E12AAE /* E_Main_Menu.xib */,
+				FCC4BA8B23FE7C7300F336F4 /* E_Main_Button_View.xib */,
 				FC25A7B7227C3EC6006579E4 /* AP_List_ViewController.h */,
 				FC25A7B8227C3EC6006579E4 /* AP_List_ViewController.m */,
 				FC25A7B9227C3EC6006579E4 /* AP_List_ViewController.xib */,
@@ -453,6 +456,7 @@
 				FC17161C2087B90700F7B419 /* AP_Intro_ViewController.xib in Resources */,
 				FC722196207B51D30058429E /* LaunchScreen.storyboard in Resources */,
 				FCD4C27520809D5D00EF0DBB /* Cells.xib in Resources */,
+				FCC4BA8C23FE7C7300F336F4 /* E_Main_Button_View.xib in Resources */,
 				FC16CC0B20865EEC00F08568 /* AP_Inner_Gallery_ViewController.xib in Resources */,
 				FC16CC0620865E7A00F08568 /* AP_Inner_Web_ViewController.xib in Resources */,
 				FC2FDC5D227CC0B800055BFC /* horoscope.txt in Resources */,
@@ -698,7 +702,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development: Huy Nguyen (S6X8K9KLV3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -709,11 +713,11 @@
 				INFOPLIST_FILE = MapApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.3dart.bluedragon;
+				MARKETING_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.vn.gdra;
 				PRODUCT_NAME = "Green Dragon";
 				PROVISIONING_PROFILE = "2a826cdd-01ac-4c5b-aefc-bdda775b99da";
-				PROVISIONING_PROFILE_SPECIFIER = bluedragon_dev;
+				PROVISIONING_PROFILE_SPECIFIER = gdDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -729,7 +733,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Distribution: 3D ART DESIGN CONSULTANCY AND TECHNOLOGY SOLUTION JOINT STOCK COMPANY (3L2APQ2D3U)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -740,11 +744,11 @@
 				INFOPLIST_FILE = MapApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.3dart.bluedragon;
+				MARKETING_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.vn.gdra;
 				PRODUCT_NAME = "Green Dragon";
 				PROVISIONING_PROFILE = "2a826cdd-01ac-4c5b-aefc-bdda775b99da";
-				PROVISIONING_PROFILE_SPECIFIER = bluedragon_dis;
+				PROVISIONING_PROFILE_SPECIFIER = gdDis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription </key>
-	<string>GreenDragon cần truy Bộ sưu tập hình ảnh của bạn cho việc cập nhật hình ảnh</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>GreenDragon cần sử dung BlueTooth của bạn</string>
-	<key>NSContactsUsageDescription</key>
-	<string>GreenDragon cần sử dụng danh bạ của bạn</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -38,6 +32,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>GreenDragon cần sử dung BlueTooth của bạn</string>
+	<key>NSContactsUsageDescription</key>
+	<string>GreenDragon cần sử dụng danh bạ của bạn</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>GreenDragon cần truy cập vị trí của bạn cho việc định vị vùng thời tiết nhanh chóng nhất</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -46,6 +44,10 @@
 	<string>GreenDragon cần sử dụng vị trí hiện tại của bạn cho việc hiển thị vị trí cụ thể theo cung tuổi và giới tính phục vụ việc lựa chọn vị trí lô đất phù hợp nhất</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>GreenDragon cần sử dụng Micro của bạn</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>GreenDragon cần truy Bộ sưu tập hình ảnh của bạn cho việc cập nhật hình ảnh</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>GreenDragon cần truy Bộ sưu tập hình ảnh của bạn cho việc cập nhật hình ảnh</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

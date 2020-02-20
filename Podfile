@@ -8,7 +8,7 @@ target 'MapApp' do
 #  pod 'THPod', '~> 1.1.6'
   
  # pod 'FirePush', '~> 0.1'
-  pod 'AllPod', '~> 0.1'
+  pod 'AllPod', '~> 0.2.0'
 
   
   pod 'GoogleMaps'

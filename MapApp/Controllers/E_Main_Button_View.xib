@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="E_Main_Button_View" rowHeight="76" id="qAz-hC-bJC">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qAz-hC-bJC" id="gRn-ld-CdG">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNQ-77-evd">
+                        <rect key="frame" x="15" y="5" width="384" height="48"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="26"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiX-sH-RwN">
+                        <rect key="frame" x="184.5" y="18.5" width="45" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="S3c-VA-g2V"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="uAX-ww-ERo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.47058823529999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LPb-q4-Dxc">
+                        <rect key="frame" x="25" y="5" width="48" height="48"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="07T-l5-sxi"/>
+                            <constraint firstAttribute="height" constant="48" id="yK2-Mj-7gH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="PNQ-77-evd" firstAttribute="top" secondItem="gRn-ld-CdG" secondAttribute="top" constant="5" id="48a-gh-VFo"/>
+                    <constraint firstItem="LPb-q4-Dxc" firstAttribute="top" secondItem="gRn-ld-CdG" secondAttribute="top" constant="5" id="5X2-XA-7kf"/>
+                    <constraint firstItem="LPb-q4-Dxc" firstAttribute="leading" secondItem="gRn-ld-CdG" secondAttribute="leading" constant="25" id="99w-9z-c5W"/>
+                    <constraint firstItem="fiX-sH-RwN" firstAttribute="centerY" secondItem="gRn-ld-CdG" secondAttribute="centerY" id="TE8-Oj-KjM"/>
+                    <constraint firstAttribute="trailing" secondItem="PNQ-77-evd" secondAttribute="trailing" constant="15" id="caB-bG-mCU"/>
+                    <constraint firstItem="fiX-sH-RwN" firstAttribute="centerX" secondItem="gRn-ld-CdG" secondAttribute="centerX" id="fUg-y4-bXK"/>
+                    <constraint firstItem="PNQ-77-evd" firstAttribute="leading" secondItem="gRn-ld-CdG" secondAttribute="leading" constant="15" id="lY0-k9-59C"/>
+                    <constraint firstAttribute="bottom" secondItem="PNQ-77-evd" secondAttribute="bottom" constant="5" id="zPF-7V-1iS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <point key="canvasLocation" x="400.00000000000006" y="18.080357142857142"/>
+        </tableViewCell>
+    </objects>
+</document>
