@@ -129,8 +129,10 @@
     
 //    controllers = [@[web, options, gallery, video, info, link] mutableCopy];
 
-    controllers = [@[web, options, video, info, link] mutableCopy];
+//    controllers = [@[web, options, video, info, link] mutableCopy];
     
+    controllers = [@[web, options] mutableCopy];
+
 //    controllers = [@[web] mutableCopy];
     
     

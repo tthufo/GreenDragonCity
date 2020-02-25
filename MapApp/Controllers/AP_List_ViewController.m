@@ -47,7 +47,7 @@
     }
     else
     {
-        topBar.constant = 64;
+        topBar.constant = 44;
     }
     
     [tableView withCell:@"E_Empty_Music"];
@@ -75,14 +75,43 @@
     }
     else
     {
+        if([label isEqualToString:@"VIDEOS"])
+        {
+            [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/layer/LL-CD27B89C/video",
+            @"method":@"GET",
+            @"overrideLoading":@(1),
+            @"host":self,
+            @"overrideAlert":@(1)
+            } withCache:^(NSString *cacheString) {
+                
+            } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
+                
+                if(![errorCode isEqualToString:@"200"])
+                {
+                    [self showToast:@"Lỗi xảy ra, mời bạn thử lại sau" andPos:0];
+                    
+                    return ;
+                }
+                           
+                [dataList removeAllObjects];
+                
+                [dataList addObjectsFromArray:[responseString objectFromJSONString][@"array"]];
         
-        NSError *error;
-        NSString *strFileContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
-                                                                       pathForResource: [label isEqualToString:@"TIN TỨC"] ? @"news" : [label isEqualToString:@"VIDEOS"] ? @"videos" : @"horoscope" ofType: @"txt"] encoding:NSUTF8StringEncoding error:&error];
+                NSLog(@"%@", dataList);
+
+                [tableView cellVisible];
+            }];
+        }
         
-        [dataList addObjectsFromArray:[strFileContent objectFromJSONString]];
+//        NSError *error;
+//        NSString *strFileContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
+//                                                                       pathForResource: [label isEqualToString:@"TIN TỨC"] ? @"news" : [label isEqualToString:@"VIDEOS"] ? @"videos" : @"horoscope" ofType: @"txt"] encoding:NSUTF8StringEncoding error:&error];
+//
+//        [dataList addObjectsFromArray:[strFileContent objectFromJSONString]];
+//
+//        [tableView cellVisible];
         
-        [tableView cellVisible];
+//        - video: http://45.117.169.237/layer/LL-CD27B89C/video
     }
 }
 
@@ -120,24 +149,45 @@
     if([label isEqualToString:@"VIDEOS"])
     {
         ((UIImageView*)[self withView:cell tag:11]).image = [UIImage imageNamed:@"icon video"];
+        
+        [(UILabel*)[self withView:cell tag:12] setText:dataList[indexPath.row][@"description"]];
     }
     else
     {
         [(UIImageView*)[self withView:cell tag:11] imageUrl:[dataList[indexPath.row][@"avatar"] encodeUrl]];
     }
     
-    [(UILabel*)[self withView:cell tag:12] setText:dataList[indexPath.row][@"title"]];
+//    [(UILabel*)[self withView:cell tag:12] setText:dataList[indexPath.row][@"title"]];
     
     return cell;
 }
 
 - (NSString *)link:(NSString *)link {
-    NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
+    
+//    NSError *error;
+    
+//    NSString* string = @"I have 2 dogs.";
+//    NSRegularExpression *regex = [NSRegularExpression
+//        regularExpressionWithPattern:@"\\d+"
+//        options:NSRegularExpressionCaseInsensitive
+//        error:&error];
+//
+//    NSTextCheckingResult *match = [regex firstMatchInString:string
+//         options:0
+//         range:NSMakeRange(0, [string length])];
+//
+//    NSLog(@"%@", match);
+
+    NSString *regexString = @"/^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/";
     NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
                                                                             options:NSRegularExpressionCaseInsensitive
                                                                               error:nil];
     
-    NSArray *array = [regExp matchesInString:link options:0 range:NSMakeRange(0,link.length)];
+    NSArray *array = [regExp matchesInString:link options:0 range:NSMakeRange(0, link.length)];
+    
+        NSLog(@"%@", array);
+
+    
     if (array.count > 0) {
         NSTextCheckingResult *result = array.firstObject;
         return [link substringWithRange:result.range];
@@ -154,19 +204,28 @@
         return;
     }
     
-    NSString * content = dataList[indexPath.row][@"content"];
+    NSString * content = dataList[indexPath.row][@"url"];
     
     if([label isEqualToString:@"VIDEOS"])
     {
-        [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:[self link:content] completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
-            
+//        AVPlayer *player = [AVPlayer playerWithURL:[NSURL URLWithString:content]];
+//        AVPlayerViewController *playerViewController = [AVPlayerViewController new];
+//        playerViewController.player = player;
+//        [self presentViewController:playerViewController animated:YES completion:^{
+//            [playerViewController.player play];
+//        }];
+        
+//        NSLog(@"%@", [self link:content]);
+                
+        [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:@"23fnvDTfEAg" completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
+
             [self hideSVHUD];
-            
+
             if (video)
             {
                 NSDictionary *streamURLs = video.streamURLs;
-                NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualityMedium360)] ;
-                
+                NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualitySmall240)] ;
+
                 AVPlayer *player = [AVPlayer playerWithURL:streamURL];
                 AVPlayerViewController *playerViewController = [AVPlayerViewController new];
                 playerViewController.player = player;

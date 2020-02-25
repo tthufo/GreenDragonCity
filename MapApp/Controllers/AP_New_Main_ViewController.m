@@ -16,6 +16,8 @@
 
 #import "AP_Web_List_ViewController.h"
 
+#import "DG_Options_ViewController_New.h"
+
 #import "AVHexColor.h"
 
 @interface AP_New_Main_ViewController ()
@@ -75,21 +77,40 @@
 
 - (IBAction)didPressLogOut:(id)sender
 {
-    [[DropAlert shareInstance] alertWithInfor:@{@"title":@"Thông báo", @"message":@"Bạn có muốn đăng xuất ra khỏi tài khoản này?", @"buttons":@[@"Đăng xuất"], @"cancel":@"Thoát"} andCompletion:^(int indexButton, id object) {
-        
-        if(indexButton == 0)
-        {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        
-            [self removeObject:@"setting"];
+    EM_MenuView * menuDialog = [[EM_MenuView alloc] initWithMenuOut:@{}];
+
+    [self.view endEditing:YES];
+    
+    [menuDialog showWithCompletion:^(int index, id object, EM_MenuView *menu) {
+        switch (index) {
+            case 0:
+            {
+                [[DropAlert shareInstance] alertWithInfor:@{@"title":@"Thông báo", @"message":@"Bạn có muốn đăng xuất ra khỏi tài khoản này?", @"buttons":@[@"Đăng xuất"], @"cancel":@"Thoát"} andCompletion:^(int indexButton, id object) {
+
+                    if(indexButton == 0)
+                    {
+                        [self.navigationController popToRootViewControllerAnimated:YES];
+
+                        [self removeObject:@"setting"];
+                    }
+
+                }];
+            }
+                break;
+            case 1:
+            {
+                exit(0);
+            }
+                break;
+            default:
+                break;
         }
-        
     }];
 }
 
 - (void)didPressImages
 {
-    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/layer/ll-2D1B168C/images/",
+    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/album/layer/LL-CD27B89C",
                                                  @"method":@"GET",
                                                  @"overrideLoading":@(1),
                                                  @"host":self,
@@ -105,11 +126,12 @@
                                                          return ;
                                                      }
                                                      
-                                                     AP_Gallery_ViewController * gallery = [AP_Gallery_ViewController new];
                                                      
-                                                     gallery.info = [responseString objectFromJSONString];
+                                                     DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
                                                      
-                                                     [self.navigationController pushViewController:gallery animated:true];
+                                                     option.titleLabel = @"Ảnh dự án";
+                                                     
+                                                     [self.navigationController pushViewController:option animated:true];
                                                  }];
 }
 
@@ -128,18 +150,47 @@
                 break;
             case 3:
             {
-                AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+                [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/layer/LL-CD27B89C/360",
+                @"method":@"GET",
+                @"overrideLoading":@(1),
+                @"host":self,
+                @"overrideAlert":@(1)
+                } withCache:^(NSString *cacheString) {
+                    
+                } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
+                    
+                    if(![errorCode isEqualToString:@"200"])
+                    {
+                        [self showToast:@"Lỗi xảy ra, mời bạn thử lại sau" andPos:0];
+                        
+                        return ;
+                    }
+                    
+                    AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
 
-                web.url = @"http://3dartvn.com/submission/dameva%20residences/360/16-3-2019/";
+                    web.url = [[[responseString objectFromJSONString][@"array"] firstObject] getValueFromKey:@"url"] ;
 
-                web.label = dict[@"title"];
+                    web.label = dict[@"title"];
 
-                [self.navigationController pushViewController:web animated:YES];
+                    [self.navigationController pushViewController:web animated:YES];
+                }];
             }
                 break;
             case 2:
-            case 4:
+            {
                 [self.navigationController pushViewController:list animated:YES];
+            }
+                break;
+            case 4:
+            {
+                AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+                
+                web.label = @"Tài liệu bán hàng";
+                
+                web.url = @"www.google.com";
+                
+                [self.navigationController pushViewController:web animated:YES];
+            }
                 break;
             default:
                 break;
@@ -167,11 +218,15 @@
     
     UIButton * menu = ((UIButton*)[self withView:cell tag:10]);
     
+    menu.accessibilityLabel = [dict bv_jsonStringWithPrettyPrint:YES];
+    
     [menu actionForTouch:@{} and:^(NSDictionary *touchInfo) {
         menu.backgroundColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
         ava.image = [UIImage imageNamed:dict[@"img"]];
-        ava.image = [UIImage imageNamed:dict[@"img"]];
         titles.textColor = [AVHexColor colorWithHexString:dict[@"title_down"]];
+//        menu.backgroundColor = [AVHexColor colorWithHexString:dict[@"title_down"]];
+//        ava.image = [UIImage imageNamed:dict[@"img_down"]];
+//        titles.textColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
         [self didPressRow:dict andIndex:indexPath.row];
     }];
     
@@ -180,8 +235,28 @@
         ava.image = [UIImage imageNamed:dict[@"img_down"]];
         titles.textColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
     }];
+    
+    [menu addTarget:self action:@selector(didCanCelling:) forControlEvents:UIControlEventTouchDragExit];
 
     return cell;
+}
+
+- (void)didCanCelling:(UIButton*)sender {
+    UIView * cell = sender.superview;
+    
+    NSDictionary * dict = [sender.accessibilityLabel objectFromJSONString];
+    
+    UIImageView * ava = ((UIImageView*)[self withView:cell tag:11]);
+      
+
+    UILabel * titles = ((UILabel*)[self withView:cell tag:12]);
+  
+  
+    UIButton * menu = ((UIButton*)[self withView:cell tag:10]);
+    
+    menu.backgroundColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
+    ava.image = [UIImage imageNamed:dict[@"img"]];
+    titles.textColor = [AVHexColor colorWithHexString:dict[@"title_down"]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

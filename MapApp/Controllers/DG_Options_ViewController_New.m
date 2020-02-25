@@ -6,16 +6,18 @@
 //  Copyright © 2019 Thanh Hai Tran. All rights reserved.
 //
 
-#import "DG_Options_ViewController.h"
+#import "DG_Options_ViewController_New.h"
 
 #import "AP_Gallery_ViewController.h"
 
-@interface DG_Options_ViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface DG_Options_ViewController_New ()<UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet NSLayoutConstraint * top;
     
     IBOutlet UITableView * tableView;
     
+    IBOutlet UILabel * titleLabelTop;
+
     NSMutableArray * dataList;
     
     NSString * uId;
@@ -23,9 +25,9 @@
 
 @end
 
-@implementation DG_Options_ViewController
+@implementation DG_Options_ViewController_New
 
-@synthesize isHide;
+@synthesize isHide, titleLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,14 +38,15 @@
     
     [tableView withCell:@"Option_Cell"];
     
-    top.constant = isHide ? 0 : SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11") ? 44 : 44;
+    titleLabelTop.text = titleLabel;
     
-    [self didRequestOptions];
-}
-
-- (IBAction)didPressOption:(id)sender
-{
-//    [self.navigationController popViewControllerAnimated:YES];
+//    top.constant = isHide ? 0 : SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11") ? 44 : 64;
+    
+//    if ([isHide isEqualToString:@""]) {
+//        
+//    } else {
+        [self didRequestOptions];
+//    }
 }
 
 - (IBAction)didPressBack:(id)sender
@@ -52,7 +55,7 @@
 }
 
 - (void)didRequestPicture:(NSString*) albumId andTitle: (NSString*) title{
-    NSString * url = !isHide ? [NSString stringWithFormat: @"http://45.117.169.237/layer/%@/album/%@", uId, albumId] : [NSString stringWithFormat: @"http://45.117.169.237/point/%@/album/%@", uId, albumId];
+    NSString * url = [NSString stringWithFormat: @"http://45.117.169.237/layer/%@/album/%@", uId, albumId];
     [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink": url,
                                                      @"method":@"GET",
                                                      @"overrideLoading":@(1),
@@ -81,7 +84,7 @@
 
 - (void)didRequestOptions
 {
-    NSString * url = !isHide ? [NSString stringWithFormat: @"http://45.117.169.237/album/layer/%@", uId] : [NSString stringWithFormat: @"http://45.117.169.237/album/layer/%@/parcel", uId];
+    NSString * url = !isHide ? [NSString stringWithFormat: @"http://45.117.169.237/album/layer/%@", uId] : [NSString stringWithFormat: @"http://45.117.169.237/album/layer/%@?sub_id=%@", uId, isHide];
     [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink": url,
                                                  @"method":@"GET",
                                                  @"overrideLoading":@(1),
@@ -134,8 +137,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSDictionary * dict = dataList[indexPath.row];
-    
-    [self didRequestPicture:dict[@"id"] andTitle: dict[@"description"]];
+        
+    if ([[dict getValueFromKey:@"has_sub_album"] isEqualToString:@"1"]) {
+        DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
+        
+        option.isHide = [dict getValueFromKey:@"id"];
+        
+        option.titleLabel = dict[@"description"];
+        
+        [self.navigationController pushViewController:option animated:YES];
+    } else {
+        [self didRequestPicture:dict[@"id"] andTitle: dict[@"description"]];
+    }
 }
 
 @end

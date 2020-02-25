@@ -35,6 +35,8 @@
 		FC2FDC5D227CC0B800055BFC /* horoscope.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC2FDC5C227CC0B800055BFC /* horoscope.txt */; };
 		FC2FDC5F227D3D5500055BFC /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC2FDC5E227D3D5400055BFC /* test.txt */; };
 		FC2FDC62227D3FF200055BFC /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2FDC61227D3FF100055BFC /* XMLReader.m */; };
+		FC458C3624058B9500719F8C /* DG_Options_ViewController_New.m in Sources */ = {isa = PBXBuildFile; fileRef = FC458C3424058B9500719F8C /* DG_Options_ViewController_New.m */; };
+		FC458C3724058B9500719F8C /* DG_Options_ViewController_New.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC458C3524058B9500719F8C /* DG_Options_ViewController_New.xib */; };
 		FC4F33F320B3CABB00EAF7E5 /* YouTube.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F33F220B3CABB00EAF7E5 /* YouTube.m */; };
 		FC4F33F720B4290900EAF7E5 /* AP_Inner_Info_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F33F520B4290800EAF7E5 /* AP_Inner_Info_ViewController.m */; };
 		FC4F33F820B4290900EAF7E5 /* AP_Inner_Info_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC4F33F620B4290800EAF7E5 /* AP_Inner_Info_ViewController.xib */; };
@@ -62,6 +64,7 @@
 		FCAA3AAB2223C6B7007F0E43 /* AP_Gallery_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCAA3AA92223C6B7007F0E43 /* AP_Gallery_ViewController.xib */; };
 		FCB4B336227B5C0600E12AAE /* E_Main_Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB4B335227B5C0600E12AAE /* E_Main_Menu.xib */; };
 		FCC4BA8C23FE7C7300F336F4 /* E_Main_Button_View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC4BA8B23FE7C7300F336F4 /* E_Main_Button_View.xib */; };
+		FCC4BA8E23FE9C6F00F336F4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC4BA8D23FE9C6F00F336F4 /* WebKit.framework */; };
 		FCD3959E225F1150008EF781 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3959C225F114E008EF781 /* LBYouTubeExtractor.m */; };
 		FCD395C1225F3CE1008EF781 /* XCDYouTubeDashManifestXML.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD395AB225F3CB0008EF781 /* XCDYouTubeDashManifestXML.m */; };
 		FCD395C2225F3CE1008EF781 /* XCDYouTubePlayerScript.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD395AE225F3CB7008EF781 /* XCDYouTubePlayerScript.m */; };
@@ -121,6 +124,9 @@
 		FC2FDC5E227D3D5400055BFC /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		FC2FDC60227D3FF000055BFC /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		FC2FDC61227D3FF100055BFC /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		FC458C3324058B9500719F8C /* DG_Options_ViewController_New.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DG_Options_ViewController_New.h; sourceTree = "<group>"; };
+		FC458C3424058B9500719F8C /* DG_Options_ViewController_New.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DG_Options_ViewController_New.m; sourceTree = "<group>"; };
+		FC458C3524058B9500719F8C /* DG_Options_ViewController_New.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DG_Options_ViewController_New.xib; sourceTree = "<group>"; };
 		FC4F33F120B3CABA00EAF7E5 /* YouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTube.h; sourceTree = "<group>"; };
 		FC4F33F220B3CABB00EAF7E5 /* YouTube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTube.m; sourceTree = "<group>"; };
 		FC4F33F420B4290800EAF7E5 /* AP_Inner_Info_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AP_Inner_Info_ViewController.h; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 		FCAA3AA92223C6B7007F0E43 /* AP_Gallery_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AP_Gallery_ViewController.xib; sourceTree = "<group>"; };
 		FCB4B335227B5C0600E12AAE /* E_Main_Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = E_Main_Menu.xib; sourceTree = "<group>"; };
 		FCC4BA8B23FE7C7300F336F4 /* E_Main_Button_View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = E_Main_Button_View.xib; sourceTree = "<group>"; };
+		FCC4BA8D23FE9C6F00F336F4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FCD3959C225F114E008EF781 /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
 		FCD3959D225F1150008EF781 /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
 		FCD395AA225F3CAF008EF781 /* XCDYouTubePlayerScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDYouTubePlayerScript.h; sourceTree = "<group>"; };
@@ -201,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCC4BA8E23FE9C6F00F336F4 /* WebKit.framework in Frameworks */,
 				11211C5878957C87B164C7AA /* libPods-MapApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +228,7 @@
 		6C73C4525EB44B21EE3FAE37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCC4BA8D23FE9C6F00F336F4 /* WebKit.framework */,
 				BC18BB8A7EE4DD3B50EAD012 /* libPods-MapApp.a */,
 			);
 			name = Frameworks;
@@ -349,6 +358,9 @@
 				FC65D81A23BB5DF100B7CCE3 /* DG_Options_ViewController.h */,
 				FC65D81B23BB5DF100B7CCE3 /* DG_Options_ViewController.m */,
 				FC65D81C23BB5DF100B7CCE3 /* DG_Options_ViewController.xib */,
+				FC458C3324058B9500719F8C /* DG_Options_ViewController_New.h */,
+				FC458C3424058B9500719F8C /* DG_Options_ViewController_New.m */,
+				FC458C3524058B9500719F8C /* DG_Options_ViewController_New.xib */,
 				FC01EB6823BB699200E6BD0E /* Option_Cell.xib */,
 			);
 			path = Controllers;
@@ -463,6 +475,7 @@
 				FC7221B1207CA8E60058429E /* AP_TextField_Cell.xib in Resources */,
 				FC22EEE420845F070027DF8A /* E_Empty_Music.xib in Resources */,
 				FC2FDC5F227D3D5500055BFC /* test.txt in Resources */,
+				FC458C3724058B9500719F8C /* DG_Options_ViewController_New.xib in Resources */,
 				FC22EEE120845ED50027DF8A /* E_OverLay_View.xib in Resources */,
 				FC722191207B51D30058429E /* Main.storyboard in Resources */,
 				FC65531F20B527300064C5D6 /* AP_Web_List_ViewController.xib in Resources */,
@@ -538,6 +551,7 @@
 				FC16CC0520865E7A00F08568 /* AP_Inner_Web_ViewController.m in Sources */,
 				FC72218E207B51D30058429E /* ViewController.m in Sources */,
 				FCD395C7225F3CE1008EF781 /* XCDYouTubeVideo.m in Sources */,
+				FC458C3624058B9500719F8C /* DG_Options_ViewController_New.m in Sources */,
 				FC722199207B51D30058429E /* main.m in Sources */,
 				FC7221AE207CA7940058429E /* AP_Register_ViewController.m in Sources */,
 				FC72218B207B51D30058429E /* AppDelegate.m in Sources */,
@@ -711,7 +725,7 @@
 				);
 				GCC_PREFIX_HEADER = MapApp/PrefixHeader.pch;
 				INFOPLIST_FILE = MapApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.vn.gdra;
@@ -742,7 +756,7 @@
 				);
 				GCC_PREFIX_HEADER = MapApp/PrefixHeader.pch;
 				INFOPLIST_FILE = MapApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.vn.gdra;

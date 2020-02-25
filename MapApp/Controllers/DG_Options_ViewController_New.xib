@@ -8,9 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DG_Options_ViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DG_Options_ViewController_New">
             <connections>
                 <outlet property="tableView" destination="IYn-UT-6hy" id="B6R-Qs-63J"/>
+                <outlet property="titleLabelTop" destination="Fqa-YT-1nV" id="tDI-UT-vBS"/>
                 <outlet property="top" destination="Imq-HT-m3W" id="EaL-0V-LnD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5CL-0L-nOG">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUX-wK-X7e">
-                            <rect key="frame" x="0.0" y="20" width="44" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="4BU-qA-Z3L"/>
                                 <constraint firstAttribute="width" constant="44" id="M3c-Z4-1xo"/>
@@ -46,7 +47,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ảnh dự án" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqa-YT-1nV">
-                            <rect key="frame" x="50" y="32" width="220" height="21"/>
+                            <rect key="frame" x="50" y="12" width="220" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="220" id="1ju-uB-Ngf"/>
                                 <constraint firstAttribute="height" constant="21" id="Mhs-fO-qZZ"/>
@@ -59,7 +60,7 @@
                     <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="rUX-wK-X7e" firstAttribute="bottom" secondItem="tVL-cU-jBT" secondAttribute="bottom" id="3oH-RP-8vu"/>
-                        <constraint firstAttribute="height" constant="64" id="Imq-HT-m3W"/>
+                        <constraint firstAttribute="height" constant="44" id="Imq-HT-m3W"/>
                         <constraint firstItem="Fqa-YT-1nV" firstAttribute="centerX" secondItem="5CL-0L-nOG" secondAttribute="centerX" id="J5E-z1-KYN"/>
                         <constraint firstItem="tVL-cU-jBT" firstAttribute="bottom" secondItem="Fqa-YT-1nV" secondAttribute="bottom" constant="11" id="etg-Zl-lrP"/>
                         <constraint firstItem="rUX-wK-X7e" firstAttribute="leading" secondItem="tVL-cU-jBT" secondAttribute="leading" id="fqy-ky-9ep"/>
@@ -67,7 +68,7 @@
                     <viewLayoutGuide key="safeArea" id="tVL-cU-jBT"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IYn-UT-6hy">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="OGR-Ql-qXX"/>

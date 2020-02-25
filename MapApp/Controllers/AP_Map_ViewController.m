@@ -14,6 +14,12 @@
 
 #import "AP_Intro_ViewController.h"
 
+#import "DG_Options_ViewController_New.h"
+
+#import "AP_Web_List_ViewController.h"
+
+#import "AP_List_ViewController.h"
+
 #import "GMUGeoJSONParser.h"
 
 #import "GMUGeometryRenderer.h"
@@ -198,21 +204,19 @@
                     break;
                 case 1:
                 {
-                    exit(0);
+                    AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+                    
+                    web.label = @"Hướng dẫn sử dụng";
+                    
+                    web.url = @"www.google.com";
+                    
+                    [self.navigationController pushViewController:web animated:YES];
                 }
                     break;
                 case 2:
                 {
-                    [[DropAlert shareInstance] alertWithInfor:@{@"title":@"Thông báo", @"message":@"Bạn có muốn đăng xuất ra khỏi tài khoản này?", @"buttons":@[@"Đăng xuất"], @"cancel":@"Thoát"} andCompletion:^(int indexButton, id object) {
-                        
-                        if(indexButton == 0)
-                        {
-                            [self.navigationController popToRootViewControllerAnimated:YES];
-                            
-                            [self removeObject:@"setting"];
-                        }
-                        
-                    }];
+                    
+                    [self didPressDate];
                 }
                     break;
                 case 3:
@@ -600,6 +604,67 @@
                                                  }];
 }
 
+- (IBAction)didPress360:(id)sender {
+    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/layer/LL-CD27B89C/360",
+                   @"method":@"GET",
+                   @"overrideLoading":@(1),
+                   @"host":self,
+                   @"overrideAlert":@(1)
+                   } withCache:^(NSString *cacheString) {
+                       
+       } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
+           
+           if(![errorCode isEqualToString:@"200"])
+           {
+               [self showToast:@"Lỗi xảy ra, mời bạn thử lại sau" andPos:0];
+               
+               return ;
+           }
+           
+           AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+
+           web.url = [[[responseString objectFromJSONString][@"array"] firstObject] getValueFromKey:@"url"] ;
+
+           web.label = @"TRẢI NGHIỆM 360";
+
+           [self.navigationController pushViewController:web animated:YES];
+       }];
+}
+
+- (IBAction)didPressVideo:(id)sender {
+    AP_List_ViewController * list = [AP_List_ViewController new];
+    
+    list.label = @"VIDEOS";
+    
+    [self.navigationController pushViewController:list animated:YES];
+}
+
+- (IBAction)didPressImages
+{
+    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/album/layer/LL-CD27B89C",
+                                                 @"method":@"GET",
+                                                 @"overrideLoading":@(1),
+                                                 @"host":self,
+                                                 @"overrideAlert":@(1)
+                                                 } withCache:^(NSString *cacheString) {
+                                                     
+                                                 } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
+                                                     
+                                                     if(![errorCode isEqualToString:@"200"])
+                                                     {
+                                                         [self showToast:@"Lỗi xảy ra, mời bạn thử lại sau" andPos:0];
+                                                         
+                                                         return ;
+                                                     }
+                                                     
+                                                     
+                                                     DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
+                                                     
+                                                     option.titleLabel = @"Ảnh dự án";
+                                                     
+                                                     [self.navigationController pushViewController:option animated:true];
+                                                 }];
+}
 
 - (void)prefixRequest
 {

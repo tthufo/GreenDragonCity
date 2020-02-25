@@ -20,10 +20,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="giaodien" translatesAutoresizingMaskIntoConstraints="NO" id="DWD-uo-PX2">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="giaodien" translatesAutoresizingMaskIntoConstraints="NO" id="DWD-uo-PX2">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-ix-470">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-ix-470">
                     <rect key="frame" x="20" y="238" width="280" height="330"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -40,19 +40,78 @@
                         <constraint firstAttribute="height" constant="160" id="zQf-hr-s8k"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsX-cy-j5n">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahz-3h-v6J">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="bG3-Dd-PYi"/>
+                                <constraint firstAttribute="height" constant="44" id="rPx-IG-S8o"/>
+                            </constraints>
+                            <state key="normal" image="back"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borrderUIColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green Dragon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta4-DO-AOQ">
+                            <rect key="frame" x="103.5" y="12" width="113.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="bm1-I4-R4V"/>
+                                <constraint firstAttribute="height" constant="21" id="lyX-Og-lbN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfF-UA-FVm">
+                            <rect key="frame" x="285" y="5" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="K94-Ma-7cw"/>
+                                <constraint firstAttribute="width" constant="35" id="MmY-g6-cAy"/>
+                            </constraints>
+                            <state key="normal" image="icon_menu_map-1"/>
+                            <connections>
+                                <action selector="didPressLogOut:" destination="-1" eventType="touchUpInside" id="weA-hI-qTC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="PfF-UA-FVm" firstAttribute="top" secondItem="3yD-cd-h7U" secondAttribute="top" constant="5" id="0zl-4V-Q0s"/>
+                        <constraint firstItem="ahz-3h-v6J" firstAttribute="bottom" secondItem="3yD-cd-h7U" secondAttribute="bottom" id="F0n-Md-Q3d"/>
+                        <constraint firstItem="3yD-cd-h7U" firstAttribute="bottom" secondItem="ta4-DO-AOQ" secondAttribute="bottom" constant="11" id="IIa-S6-1Yr"/>
+                        <constraint firstItem="ahz-3h-v6J" firstAttribute="leading" secondItem="3yD-cd-h7U" secondAttribute="leading" id="iw4-J6-OhD"/>
+                        <constraint firstAttribute="height" constant="44" id="k7w-7B-owE"/>
+                        <constraint firstItem="PfF-UA-FVm" firstAttribute="trailing" secondItem="3yD-cd-h7U" secondAttribute="trailing" id="wDL-Sv-sm0"/>
+                        <constraint firstItem="ta4-DO-AOQ" firstAttribute="centerX" secondItem="BsX-cy-j5n" secondAttribute="centerX" id="zDw-Ng-B2N"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="3yD-cd-h7U"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="BsX-cy-j5n" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="53E-iq-XUJ"/>
+                <constraint firstItem="DWD-uo-PX2" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="6tY-cA-yH0"/>
                 <constraint firstItem="9w2-ix-470" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="88w-X0-1S1"/>
-                <constraint firstItem="DWD-uo-PX2" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Fwd-rG-0sV"/>
                 <constraint firstItem="AQH-q0-BBx" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="J7h-Tz-WHq"/>
-                <constraint firstItem="DWD-uo-PX2" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="Kd2-ZS-6mA"/>
+                <constraint firstItem="DWD-uo-PX2" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="RBV-FA-6jf"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="9w2-ix-470" secondAttribute="trailing" constant="20" id="Rll-yq-X2Y"/>
-                <constraint firstItem="DWD-uo-PX2" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="eVr-P0-gT7"/>
+                <constraint firstItem="BsX-cy-j5n" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="XNp-2e-PDO"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="DWD-uo-PX2" secondAttribute="bottom" id="Z17-Dh-j7U"/>
                 <constraint firstItem="AQH-q0-BBx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="eq1-2s-zva"/>
                 <constraint firstItem="AQH-q0-BBx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="ghQ-nq-UFZ"/>
+                <constraint firstItem="BsX-cy-j5n" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="hUy-Bs-j3O"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="9w2-ix-470" secondAttribute="bottom" id="qg7-nv-VO5"/>
-                <constraint firstItem="DWD-uo-PX2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tXu-FE-Y8a"/>
+                <constraint firstItem="DWD-uo-PX2" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="wac-t9-cYz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
@@ -72,7 +131,9 @@
         </button>
     </objects>
     <resources>
+        <image name="back" width="50.5" height="50.5"/>
         <image name="giaodien" width="413.5" height="735.5"/>
+        <image name="icon_menu_map-1" width="170.5" height="170.5"/>
         <image name="logo" width="1180.5" height="710.5"/>
         <image name="logout" width="170.5" height="170.5"/>
     </resources>

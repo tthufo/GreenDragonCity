@@ -14,6 +14,8 @@ typedef void (^MenuCompletion)(int index, id object, EM_MenuView * menu);
 
 @interface EM_MenuView : CustomIOS7AlertView
 
+- (id)initWithMenuOut:(NSDictionary*)info;
+
 - (id)initWithMenu:(NSDictionary*)info;
 
 - (id)initWithLayers:(NSDictionary*)info;

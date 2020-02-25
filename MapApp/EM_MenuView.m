@@ -27,6 +27,48 @@
 
 @synthesize menuCompletion;
 
+- (id)initWithMenuOut:(NSDictionary*)info
+{
+    self = [self init];
+    
+    [self setContainerView:[self didCreateMenuViewOut:info]];
+    
+    [self setUseMotionEffects:true];
+    
+    return self;
+}
+
+- (UIView*)didCreateMenuViewOut:(NSDictionary*)dict
+{
+    UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 126)];
+    
+    [commentView withBorder:@{@"Bcolor":[UIColor whiteColor],@"Bcorner":@(5),@"Bwidth":@(0)}];
+    
+    UIView *contentView = [[NSBundle mainBundle] loadNibNamed:@"EM_Menu" owner:self options:nil][5];
+    
+    contentView.frame = CGRectMake(0, 0, commentView.frame.size.width, commentView.frame.size.height);
+    
+    [(UIButton*)[self withView:contentView tag:10] actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+        
+        [self close];
+        
+        self.menuCompletion(0, nil, self);
+        
+    }];
+    
+    [(UIButton*)[self withView:contentView tag:11] actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+        
+        [self close];
+        
+        self.menuCompletion(1, nil, self);
+
+    }];
+    
+    [commentView addSubview:contentView];
+    
+    return commentView;
+}
+
 - (id)initWithMenu:(NSDictionary*)info
 {
     self = [self init];
@@ -40,7 +82,7 @@
 
 - (UIView*)didCreateMenuView:(NSDictionary*)dict
 {
-    BOOL show = [[ObjectInfo shareInstance].login isEqualToString:@"Yes"];
+    BOOL show = NO;//; [[ObjectInfo shareInstance].login isEqualToString:@"Yes"];
     
     UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, show ? 215 : 176)];
     
