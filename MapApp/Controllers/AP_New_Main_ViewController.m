@@ -187,7 +187,7 @@
                 
                 web.label = @"Tài liệu bán hàng";
                 
-                web.url = @"www.google.com";
+                web.url = @"https://drive.google.com/file/d/1dZetI0ypIzEjNRia5LYa29JQfNkePeG5/view";
                 
                 [self.navigationController pushViewController:web animated:YES];
             }

@@ -47,7 +47,7 @@
     }
     else
     {
-        topBar.constant = 44;
+        topBar.constant = 64;
     }
     
     [tableView withCell:@"E_Empty_Music"];
@@ -92,13 +92,9 @@
                     
                     return ;
                 }
-                           
-                [dataList removeAllObjects];
-                
+                                                
                 [dataList addObjectsFromArray:[responseString objectFromJSONString][@"array"]];
         
-                NSLog(@"%@", dataList);
-
                 [tableView cellVisible];
             }];
         }
@@ -148,7 +144,7 @@
     
     if([label isEqualToString:@"VIDEOS"])
     {
-        ((UIImageView*)[self withView:cell tag:11]).image = [UIImage imageNamed:@"icon video"];
+        ((UIImageView*)[self withView:cell tag:11]).image = [UIImage imageNamed:@"video_xanh"];
         
         [(UILabel*)[self withView:cell tag:12] setText:dataList[indexPath.row][@"description"]];
     }
@@ -163,31 +159,12 @@
 }
 
 - (NSString *)link:(NSString *)link {
-    
-//    NSError *error;
-    
-//    NSString* string = @"I have 2 dogs.";
-//    NSRegularExpression *regex = [NSRegularExpression
-//        regularExpressionWithPattern:@"\\d+"
-//        options:NSRegularExpressionCaseInsensitive
-//        error:&error];
-//
-//    NSTextCheckingResult *match = [regex firstMatchInString:string
-//         options:0
-//         range:NSMakeRange(0, [string length])];
-//
-//    NSLog(@"%@", match);
-
-    NSString *regexString = @"/^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/";
+    NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
     NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
                                                                             options:NSRegularExpressionCaseInsensitive
                                                                               error:nil];
     
-    NSArray *array = [regExp matchesInString:link options:0 range:NSMakeRange(0, link.length)];
-    
-        NSLog(@"%@", array);
-
-    
+    NSArray *array = [regExp matchesInString:link options:0 range:NSMakeRange(0,link.length)];
     if (array.count > 0) {
         NSTextCheckingResult *result = array.firstObject;
         return [link substringWithRange:result.range];
@@ -208,23 +185,14 @@
     
     if([label isEqualToString:@"VIDEOS"])
     {
-//        AVPlayer *player = [AVPlayer playerWithURL:[NSURL URLWithString:content]];
-//        AVPlayerViewController *playerViewController = [AVPlayerViewController new];
-//        playerViewController.player = player;
-//        [self presentViewController:playerViewController animated:YES completion:^{
-//            [playerViewController.player play];
-//        }];
-        
-//        NSLog(@"%@", [self link:content]);
-                
-        [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:@"23fnvDTfEAg" completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
+        [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:[self link:content] completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
 
             [self hideSVHUD];
 
             if (video)
             {
                 NSDictionary *streamURLs = video.streamURLs;
-                NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualitySmall240)] ;
+                NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualityMedium360)] ;
 
                 AVPlayer *player = [AVPlayer playerWithURL:streamURL];
                 AVPlayerViewController *playerViewController = [AVPlayerViewController new];

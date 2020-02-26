@@ -34,7 +34,7 @@
 
 @interface AP_Map_ViewController ()<GMSMapViewDelegate>
 {
-    IBOutlet UIImageView * hand;
+    IBOutlet UIImageView * hand, * logos;
     
     IBOutlet UIView * top, * bar;
     
@@ -208,7 +208,7 @@
                     
                     web.label = @"Hướng dẫn sử dụng";
                     
-                    web.url = @"www.google.com";
+                    web.url = @"https://drive.google.com/file/d/1KlECpqY4VbqxhQHDOu4jROT0e7oNeR10/view";
                     
                     [self.navigationController pushViewController:web animated:YES];
                 }
@@ -240,6 +240,10 @@
     [self performSelector:@selector(prefixRequest) withObject:nil afterDelay:0.5];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(OrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
+    [logos actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 -(void)OrientationDidChange:(NSNotification*)notification
