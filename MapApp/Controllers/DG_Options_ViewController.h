@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, weak) NSString * isHide ;
 
+@property(nonatomic, weak) NSString * gId ;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -186,7 +186,7 @@
     if([label isEqualToString:@"VIDEOS"])
     {
         [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:[self link:content] completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
-
+            
             [self hideSVHUD];
 
             if (video)
@@ -202,8 +202,8 @@
                 }];
             }
             else
-            {
-                [self alert:@"Thông báo" message:@"Video đang được cập nhật, mời bạn thử lại sau"];
+            {                
+                [self alert:@"Thông báo" message:error.localizedDescription];
             }
         }];
     }

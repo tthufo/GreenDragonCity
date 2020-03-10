@@ -37,7 +37,6 @@
     NSError *error;
     NSString *strFileContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
                                                                    pathForResource: @"text" ofType: @"txt"] encoding:NSUTF8StringEncoding error:&error];
-    
     if(error)
     {
         

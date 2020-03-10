@@ -199,23 +199,73 @@
             switch (index) {
                 case 0:
                 {
-                    [self.navigationController pushViewController:[AP_Intro_ViewController new] animated:YES];
+//                    [self.navigationController pushViewController:[AP_Intro_ViewController new] animated:YES];
+                    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/layer/LL-CD27B89C/intro",
+                                      @"method":@"GET",
+                                      @"overrideLoading":@(1),
+                                      @"host":self,
+                                      @"overrideAlert":@(1)
+                                      } withCache:^(NSString *cacheString) {
+                                          
+                                      } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
+                                          
+                                          if(![errorCode isEqualToString:@"200"])
+                                          {
+                                              [self showToast:@"Lỗi xảy ra, mời bạn thử lại sau" andPos:0];
+                                              
+                                              return ;
+                                          }
+                                          
+                                          DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
+                                          
+                                          option.intros = [responseString objectFromJSONString][@"array"];
+                                                                                    
+                                          option.titleLabel = @"Giới thiệu dự án";
+                                          
+                                          [self.navigationController pushViewController:option animated:true];
+                                      }];
                 }
                     break;
                 case 1:
                 {
                     AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
-                    
+
                     web.label = @"Hướng dẫn sử dụng";
-                    
+
                     web.url = @"https://drive.google.com/file/d/1KlECpqY4VbqxhQHDOu4jROT0e7oNeR10/view";
-                    
+
                     [self.navigationController pushViewController:web animated:YES];
+                    
+//                    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/layer/LL-CD27B89C/intro",
+//                    @"method":@"GET",
+//                    @"overrideLoading":@(1),
+//                    @"host":self,
+//                    @"overrideAlert":@(1)
+//                    } withCache:^(NSString *cacheString) {
+//
+//                    } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
+//
+//                        if(![errorCode isEqualToString:@"200"])
+//                        {
+//                            [self showToast:@"Lỗi xảy ra, mời bạn thử lại sau" andPos:0];
+//
+//                            return ;
+//                        }
+//
+//                        DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
+//
+//                        option.intros = [responseString objectFromJSONString][@"array"];
+//
+//                        NSLog(@"%@", [responseString objectFromJSONString][@"array"]);
+//
+//                        option.titleLabel = @"Giới thiệu dự án";
+//
+//                        [self.navigationController pushViewController:option animated:true];
+//                    }];
                 }
                     break;
                 case 2:
                 {
-                    
                     [self didPressDate];
                 }
                     break;
@@ -423,6 +473,154 @@
     polyMarker.map = mapView;
     polyMarker.tappable = NO;
     mapView.selectedMarker = polyMarker;
+        
+    if (![info isEqualToString:@""]) {
+        UIButton * cover = [UIButton buttonWithType:UIButtonTypeCustom];
+        cover.backgroundColor = [UIColor clearColor];
+        cover.tag = 202021;
+        cover.frame = CGRectMake(0, 0, mapView.frame.size.width, mapView.frame.size.height);
+        [mapView addSubview:cover];
+        [cover actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+            [cover removeFromSuperview];
+            for (UIView * v in mapView.subviews) {
+               if (v.tag == 202020) {
+                   [v removeFromSuperview];
+               }
+            }
+        }];
+        [mapView addSubview:[self markerView:polyMarker]];
+    }
+}
+
+- (UIView*)markerView:(GMSMarker*)marker {
+     if(marker == mainMarker || marker == layerMarker)
+        {
+            return nil;
+        }
+        
+        NSMutableDictionary * markerInfo = [[marker.accessibilityLabel objectFromJSONString] reFormat];
+        
+        int indexing = 1;
+        
+        if([markerInfo responseForKey:@"images"] && ![markerInfo[@"images"] isKindOfClass:[NSString class]])
+        {
+            indexing = 0;
+            
+            if([markerInfo[@"images"] isKindOfClass:[NSArray class]] && ((NSArray*)markerInfo[@"images"]).count == 0)
+            {
+                indexing = 1;
+            }
+            
+            if(![[markerInfo getValueFromKey:@"anh_tienich"] isEqualToString: @""]) {
+                indexing = 0;
+            }
+        }
+                
+        UIView * view = [[NSBundle mainBundle] loadNibNamed:@"Annotation" owner:nil options:nil][indexing];
+        
+        view.tag = 202020;
+    
+        ((UIView*)[self withView:view tag:15]).transform = CGAffineTransformMakeRotation(150);
+        
+        UILabel * des = ((UILabel*)[self withView:view tag:12]);
+        
+        UIButton * detail = ((UIButton*)[self withView:view tag:16]);
+    
+        [detail actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+            NSMutableDictionary * markerInfo = [[marker.accessibilityLabel objectFromJSONString] reFormat];
+        
+            if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"]) {
+                return;
+            }
+        
+            AP_Web_ViewController * web = [AP_Web_ViewController new];
+        
+            web.info = markerInfo;
+        
+            [self.navigationController pushViewController:web animated:YES];
+        }];
+        
+        UIButton * x = ((UIButton*)[self withView:view tag:8989]);
+        
+        [x actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+            [view removeFromSuperview];
+            for (UIView * v in mapView.subviews) {
+               if (v.tag == 202020 || v.tag == 202021) {
+                   [v removeFromSuperview];
+               }
+            }
+        }];
+        
+        if(marker == polyMarker)
+        {
+            ((UILabel*)[self withView:view tag:10]).text = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"] ? [markerInfo getValueFromKey:@"ten_lo"] : [NSString stringWithFormat:@"Lô: %@", [markerInfo getValueFromKey:@"ten_lo"]];
+            
+            NSString * condition = [markerInfo getValueFromKey:@"tinh_trang_id"];
+            
+            [((UILabel*)[self withView:view tag:10]) setTextColor:[condition isEqualToString:@"1"] ? [UIColor colorWithRed:0 green:255 blue:0 alpha:0.8] : [condition isEqualToString:@"2"] ? [UIColor colorWithRed:255 green:0 blue:0 alpha:0.8] : [condition isEqualToString:@"3"] ? [UIColor colorWithRed:0 green:0 blue:255 alpha:0.8] : [UIColor yellowColor]];
+            
+            NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Mã lô: %@ \nTrạng thái: %@ \nDiện tích: %@ m2 \n%@", [markerInfo getValueFromKey:@"ki_hieu"], [self status:[markerInfo getValueFromKey:@"tinh_trang_id"]][@"status"], [markerInfo getValueFromKey:@"dien_tich"], [markerInfo getValueFromKey:@"description"]]];
+            
+            [string setColorForText:[self status:[markerInfo getValueFromKey:@"tinh_trang_id"]][@"status"] withColor:[self status:[markerInfo getValueFromKey:@"tinh_trang_id"]][@"color"]];
+            
+            if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"]) {
+                des.text = @"";
+            } else {
+                des.attributedText = string;
+            }
+            
+            detail.hidden = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"];
+        }
+        else if(marker == searchMarker)
+        {
+            ((UILabel*)[self withView:view tag:10]).text = [NSString stringWithFormat:@"%@", [markerInfo getValueFromKey:@"text"]];
+            
+    //        [(UIImageView*)[self withView:view tag:11] imageUrl:[markerInfo[@"images"] firstObject]];
+            detail.hidden = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"];
+
+            des.text = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"] ? @"" : [markerInfo getValueFromKey:@"description"];
+        }
+        else
+        {
+            ((UILabel*)[self withView:view tag:10]).text = [NSString stringWithFormat:@"%@", [markerInfo getValueFromKey:@"name"]];
+            
+    //        [(UIImageView*)[self withView:view tag:11] imageUrl:[markerInfo[@"images"] firstObject]];
+            detail.hidden = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"];
+
+            des.text = [[markerInfo getValueFromKey:@"is_tienich"] isEqualToString: @"1"] ? @"" : [markerInfo getValueFromKey:@"description"];
+        }
+        
+        marker.tracksInfoWindowChanges = YES;
+
+        float height = [des sizeOfMultiLineLabel].height;
+        
+        [view setHeight:height + (indexing ? 95 : 250) animated:NO];
+        
+        if(indexing == 0)
+        {
+            [view setWidth: 330 animated:NO];
+        }
+        
+        if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"]) {
+            ((UILabel*)[self withView:view tag:10]).textColor = [UIColor orangeColor];
+        }
+
+        if(indexing == 0)
+        {
+            if (((NSArray*)markerInfo[@"images"]).count != 0) {
+                [(UIImageView*)[self withView:view tag:100] imageUrl:[markerInfo[@"images"] firstObject][@"image_path"]];
+            }
+        }
+    
+       CGRect frame = view.frame;
+       
+    frame.origin.x = ([self screenWidth] - view.frame.size.width) / 2;
+    
+    frame.origin.y = (([self screenHeight] - (view.frame.size.height * 2)) / 2) - 10;
+    
+    view.frame = frame;
+    
+    return view;
 }
 
 - (void)didRequestPositionInfo:(NSString*)loId andLat:(float)lat andLng:(float)lng
@@ -1193,26 +1391,39 @@
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker;
 {
-    NSMutableDictionary * markerInfo = [[marker.accessibilityLabel objectFromJSONString] reFormat];
-
-    if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"]) {
-        return;
-    }
-    
-    AP_Web_ViewController * web = [AP_Web_ViewController new];
-    
-    web.info = markerInfo;
-    
-    [self.navigationController pushViewController:web animated:YES];
+//    NSMutableDictionary * markerInfo = [[marker.accessibilityLabel objectFromJSONString] reFormat];
+//
+//    if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"]) {
+//        return;
+//    }
+//
+//    AP_Web_ViewController * web = [AP_Web_ViewController new];
+//
+//    web.info = markerInfo;
+//
+//    [self.navigationController pushViewController:web animated:YES];
 }
 
 - (void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
     mainMarker.position = coordinate;
+    
+    for (UIView * v in mapView.subviews) {
+       if (v.tag == 202020 || v.tag == 202021) {
+           [v removeFromSuperview];
+       }
+    }
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
+    
+    for (UIView * v in mapView.subviews) {
+        if (v.tag == 202020 || v.tag == 202021) {
+            [v removeFromSuperview];
+        }
+     }
+    
     CGPoint locationInView = [mapView.projection pointForCoordinate:coordinate];
     
     //if(mapView.camera.zoom >= 18)
@@ -1240,7 +1451,7 @@
         {
             return;
         }
-        
+
         [self showSVHUD:@"Đang tải" andOption:0];
 
         [self getAreaInfo];
@@ -1286,6 +1497,12 @@
     UILabel * des = ((UILabel*)[self withView:view tag:12]);
     
     UIButton * detail = ((UIButton*)[self withView:view tag:16]);
+    
+    UIButton * x = ((UIButton*)[self withView:view tag:8989]);
+    
+    [x actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+        [renderer clear];
+    }];
     
     if(marker == polyMarker)
     {
@@ -1342,7 +1559,7 @@
     
     if(indexing == 0)
     {
-        [view setWidth:330 animated:NO];
+        [view setWidth: 330 animated:NO];
     }
     
     if ([[markerInfo getValueFromKey:@"is_tienich"] isEqualToString:@"1"]) {
@@ -1357,13 +1574,15 @@
     }
 //        [(UIImageView*)[self withView:view tag:100] imageUrl:[markerInfo getValueFromKey:@"anh_tienich"]];
     
-    return view;
+    return nil;
 }
 
 - (NSDictionary*)status:(NSString*)statusId
 {
     return @{@"color":[statusId isEqualToString:@"1"] ? [UIColor colorWithRed:0 green:255 blue:0 alpha:0.8] : [statusId isEqualToString:@"2"] ? [UIColor colorWithRed:255 green:0 blue:0 alpha:0.8] : [statusId isEqualToString:@"3"] ? [UIColor colorWithRed:0 green:0 blue:255 alpha:0.8] : [UIColor yellowColor], @"status":[statusId isEqualToString:@"1"] ? @"Chưa đăng ký" : [statusId isEqualToString:@"2"] ? @"Đã đăng ký" : [statusId isEqualToString:@"3"] ? @"Đã đặt cọc" : @"Đã khoá"};
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

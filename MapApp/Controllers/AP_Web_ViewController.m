@@ -67,7 +67,9 @@
     
 //    tabsName = @[@"THÔNG TIN", @"ẢNH 3D", @"ẢNH TIẾN ĐỘ", @"VIDEO", @"TÀI LIỆU DỰ ÁN", @"TRẢI NGHIỆM 360"];
     
-    tabsName = @[@"THÔNG TIN", @"ẢNH 3D", @"VIDEO", @"TÀI LIỆU DỰ ÁN", @"TRẢI NGHIỆM 360"];
+//    tabsName = @[@"THÔNG TIN", @"ẢNH 3D", @"VIDEO", @"TÀI LIỆU DỰ ÁN", @"TRẢI NGHIỆM 360"];
+
+    tabsName = @[@"THÔNG TIN", @"ẢNH 3D"];//, @"VIDEO", @"TÀI LIỆU DỰ ÁN", @"TRẢI NGHIỆM 360"];
 
 //    tabsName = @[@"Thông tin"];
 
@@ -79,9 +81,9 @@
         [arr addObject:[NSString stringWithFormat:@"%f", (IS_IPHONE_5 || IS_IPHONE_4_OR_LESS) ? [[self modelLabel:i] sizeOfLabel].width + 5 : screenWidth1 / 4]];
     }
     
-    self.offSetLeft = newOrientation == UIInterfaceOrientationPortrait ? @"35" : [self hasBottomNotch] ? @"55" : @"35";
-
-    self.offSetRight = newOrientation == UIInterfaceOrientationPortrait ? @"35" : [self hasBottomNotch] ? @"55" : @"35";
+//    self.offSetLeft = newOrientation == UIInterfaceOrientationPortrait ? @"35" : [self hasBottomNotch] ? @"55" : @"35";
+//
+//    self.offSetRight = newOrientation == UIInterfaceOrientationPortrait ? @"35" : [self hasBottomNotch] ? @"55" : @"35";
     
     NSLog(@"%@", [self isIphoneX] ? @" " : @"no" );
     
@@ -97,10 +99,12 @@
     
     webInfo[@"type"] = @"0";
     
-    web.info = webInfo;;
+    web.info = webInfo;
     
     
     DG_Options_ViewController * options = [DG_Options_ViewController new];
+    
+    options.gId = [info getValueFromKey:@"gid"];
     
     options.isHide = @"hide";
     
@@ -288,7 +292,7 @@
         case ViewPagerOptionTabOffset:
             return 0;
         case ViewPagerOptionTabWidth:
-            return ((self.view.frame.size.width) / 5) + 60;
+            return ((self.view.frame.size.width) / 2) - 0;
 //            return ((self.view.frame.size.width) / 1) + 0;
         case ViewPagerOptionFixFormerTabsPositions:
             return 1.0;

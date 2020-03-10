@@ -25,7 +25,7 @@
 
 @implementation DG_Options_ViewController
 
-@synthesize isHide;
+@synthesize isHide, gId;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,7 +52,7 @@
 }
 
 - (void)didRequestPicture:(NSString*) albumId andTitle: (NSString*) title{
-    NSString * url = !isHide ? [NSString stringWithFormat: @"http://45.117.169.237/layer/%@/album/%@", uId, albumId] : [NSString stringWithFormat: @"http://45.117.169.237/point/%@/album/%@", uId, albumId];
+    NSString * url = !isHide ? [NSString stringWithFormat: @"http://45.117.169.237/layer/%@/album/%@", uId, albumId] : [NSString stringWithFormat: @"http://45.117.169.237/point/%@/album/%@", gId, albumId];
     [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink": url,
                                                      @"method":@"GET",
                                                      @"overrideLoading":@(1),

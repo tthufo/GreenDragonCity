@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNu-6M-7fD">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNu-6M-7fD">
                     <rect key="frame" x="285" y="64" width="35" height="35"/>
                     <color key="backgroundColor" red="0.81176470588235294" green="0.81960784313725488" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -30,7 +30,7 @@
                         <constraint firstAttribute="width" constant="35" id="zNn-4e-gSt"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWc-ni-7hO">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWc-ni-7hO">
                     <rect key="frame" x="0.0" y="64" width="35" height="35"/>
                     <color key="backgroundColor" red="0.81176470588235294" green="0.81960784313725488" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -84,14 +84,14 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="gCf-Ly-5Gv"/>
                 </view>
-                <imageView alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="YcA-tQ-sE7">
+                <imageView hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="YcA-tQ-sE7">
                     <rect key="frame" x="0.0" y="64" width="30" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="Etq-ub-8sB"/>
                         <constraint firstAttribute="width" constant="30" id="c78-YZ-oHY"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="iwt-Y2-oOI">
+                <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="iwt-Y2-oOI">
                     <rect key="frame" x="290" y="64" width="30" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="Xaj-U1-cH6"/>

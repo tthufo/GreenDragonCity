@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, weak) NSString * titleLabel ;
 
+@property(nonatomic, retain) NSMutableArray * intros ;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,8 @@
 
 #import "AP_Gallery_ViewController.h"
 
+#import "AP_Web_List_ViewController.h"
+
 @interface DG_Options_ViewController_New ()<UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet NSLayoutConstraint * top;
@@ -27,7 +29,7 @@
 
 @implementation DG_Options_ViewController_New
 
-@synthesize isHide, titleLabel;
+@synthesize isHide, titleLabel, intros;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,13 +47,48 @@
 //    if ([isHide isEqualToString:@""]) {
 //        
 //    } else {
+    
+    NSLog(@"=====%@", intros);
+    
+    if (intros && intros.count != 0) {
+    } else {
         [self didRequestOptions];
+    }
 //    }
 }
 
 - (IBAction)didPressBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didRequestIntros:(NSString*) inId andTitle: (NSString*) title{
+    NSString * url = [NSString stringWithFormat: @"http://45.117.169.237/layer/%@/intro?instroid=%@", uId, inId];
+    [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink": url,
+                                                     @"method":@"GET",
+                                                     @"overrideLoading":@(1),
+                                                     @"host":self,
+                                                     @"overrideAlert":@(1)
+                                                     } withCache:^(NSString *cacheString) {
+    
+                                                     } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
+    
+                                                         if(![errorCode isEqualToString:@"200"])
+                                                         {
+                                                             [self showToast:@"Lỗi xảy ra, mời bạn thử lại sau" andPos:0];
+    
+                                                             return ;
+                                                         }
+                                                             
+                                                         
+                                      DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
+                                      
+                                      option.intros = [responseString objectFromJSONString][@"array"];
+                                                                                
+                                      option.titleLabel = title;
+                                      
+                                      [self.navigationController pushViewController:option animated:true];
+                                                     }];
 }
 
 - (void)didRequestPicture:(NSString*) albumId andTitle: (NSString*) title{
@@ -113,7 +150,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return dataList.count;
+    return intros ? intros.count : dataList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,7 +162,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Option_Cell" forIndexPath:indexPath];
 
-    NSDictionary * dict = dataList[indexPath.row];
+    NSDictionary * dict = intros ? intros[indexPath.row] : dataList[indexPath.row];
     
     [(UILabel*)[self withView:cell tag:12] setText:[NSString stringWithFormat:@"   %@", dict[@"description"]]];
 
@@ -136,18 +173,40 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSDictionary * dict = dataList[indexPath.row];
-        
-    if ([[dict getValueFromKey:@"has_sub_album"] isEqualToString:@"1"]) {
-        DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
-        
-        option.isHide = [dict getValueFromKey:@"id"];
-        
-        option.titleLabel = dict[@"description"];
-        
-        [self.navigationController pushViewController:option animated:YES];
+    NSDictionary * dict = intros ? intros[indexPath.row] : dataList[indexPath.row];
+
+    if (intros) {
+        if ([[dict getValueFromKey:@"has_sub_intro"] isEqualToString:@"1"]) {
+//            DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
+//
+//            option.isHide = [dict getValueFromKey:@"id"];
+//
+//            option.titleLabel = dict[@"description"];
+//
+//            [self.navigationController pushViewController:option animated:YES];
+            [self didRequestIntros:dict[@"id"] andTitle: dict[@"description"]];
+        } else {
+//            [self didRequestIntros:dict[@"id"] andTitle: dict[@"description"]];
+            AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+
+            web.label = dict[@"description"];
+
+            web.url = [NSString stringWithFormat:@"http://45.117.169.237/layer/LL-CD27B89C/intro/view/%@", [dict getValueFromKey:@"id"]];
+
+            [self.navigationController pushViewController:web animated:YES];
+        }
     } else {
-        [self didRequestPicture:dict[@"id"] andTitle: dict[@"description"]];
+        if ([[dict getValueFromKey:@"has_sub_album"] isEqualToString:@"1"]) {
+            DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
+            
+            option.isHide = [dict getValueFromKey:@"id"];
+            
+            option.titleLabel = dict[@"description"];
+            
+            [self.navigationController pushViewController:option animated:YES];
+        } else {
+            [self didRequestPicture:dict[@"id"] andTitle: dict[@"description"]];
+        }
     }
 }
 
