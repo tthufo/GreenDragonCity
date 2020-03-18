@@ -253,7 +253,7 @@
             <point key="canvasLocation" x="223" y="1006.5"/>
         </view>
         <view contentMode="scaleToFill" id="M0p-bl-tTC">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="176"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="138"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tùy Chọn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OO9-7d-vbR">
@@ -280,7 +280,7 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1m5-FG-Css">
+                <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" tag="14" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1m5-FG-Css">
                     <rect key="frame" x="16" y="126" width="268" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -311,7 +311,7 @@
                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="-746.25" y="706.25"/>
+            <point key="canvasLocation" x="-746.25" y="682.5"/>
         </view>
         <view contentMode="scaleToFill" id="7L3-Dv-K2W">
             <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>

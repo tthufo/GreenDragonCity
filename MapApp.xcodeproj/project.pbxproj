@@ -80,6 +80,7 @@
 		FCD3959E225F1150008EF781 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3959C225F114E008EF781 /* LBYouTubeExtractor.m */; };
 		FCD4C27320809D2D00EF0DBB /* format.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD4C27220809D2C00EF0DBB /* format.plist */; };
 		FCD4C27520809D5D00EF0DBB /* Cells.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD4C27420809D5D00EF0DBB /* Cells.xib */; };
+		FCDF7FBB2421E990009D3C0B /* Option_Cell_New.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDF7FBA2421E98F009D3C0B /* Option_Cell_New.xib */; };
 		FCE4C8E3209317B100775A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE4C8E2209317B100775A98 /* Assets.xcassets */; };
 		FCED49C92083C05500DEE007 /* Annotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCED49C82083C05500DEE007 /* Annotation.xib */; };
 		FCF253CA207EF52700BC12F5 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF253C9207EF52700BC12F5 /* ObjectInfo.m */; };
@@ -206,6 +207,7 @@
 		FCD3959D225F1150008EF781 /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
 		FCD4C27220809D2C00EF0DBB /* format.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = format.plist; sourceTree = "<group>"; };
 		FCD4C27420809D5D00EF0DBB /* Cells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cells.xib; sourceTree = "<group>"; };
+		FCDF7FBA2421E98F009D3C0B /* Option_Cell_New.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Option_Cell_New.xib; sourceTree = "<group>"; };
 		FCE4C8E2209317B100775A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCED49C82083C05500DEE007 /* Annotation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Annotation.xib; sourceTree = "<group>"; };
 		FCF253C8207EF52700BC12F5 /* ObjectInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectInfo.h; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				FC458C3424058B9500719F8C /* DG_Options_ViewController_New.m */,
 				FC458C3524058B9500719F8C /* DG_Options_ViewController_New.xib */,
 				FC01EB6823BB699200E6BD0E /* Option_Cell.xib */,
+				FCDF7FBA2421E98F009D3C0B /* Option_Cell_New.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				FC22EEE020845ED50027DF8A /* E_Search_Cell.xib in Resources */,
 				FCED49C92083C05500DEE007 /* Annotation.xib in Resources */,
 				FC157B47207F5CD100A79FD3 /* AP_Web_ViewController.xib in Resources */,
+				FCDF7FBB2421E990009D3C0B /* Option_Cell_New.xib in Resources */,
 				FC5E5E4B20883E83003FF40E /* text.txt in Resources */,
 				FCB4B336227B5C0600E12AAE /* E_Main_Menu.xib in Resources */,
 				FC7221A4207B56080058429E /* AP_Login_ViewController.xib in Resources */,
@@ -734,7 +738,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development: Huy Nguyen (S6X8K9KLV3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -765,7 +769,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Distribution: 3D ART DESIGN CONSULTANCY AND TECHNOLOGY SOLUTION JOINT STOCK COMPANY (3L2APQ2D3U)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -124,18 +124,31 @@
 
     NSDictionary * dict = dataList[indexPath.row];
     
-    [(UILabel*)[self withView:cell tag:12] setText:[NSString stringWithFormat:@"   %@", dict[@"description"]]];
+    UIButton * menu = (UIButton*)[self withView:cell tag:12];
+       
+       [menu setTitle:[NSString stringWithFormat:@"   %@", dict[@"description"]] forState:UIControlStateNormal];
 
+       UIView * view = (UIView*)[self withView:cell tag:155];
+       
+       UILabel * arrow = (UILabel*)[self withView:cell tag:989];
+
+       [menu actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+           [self didRequestPicture:dict[@"id"] andTitle: dict[@"description"]];
+           view.layer.borderWidth = 1;
+           arrow.textColor = [UIColor blackColor];
+       }];
+       
+       [menu actionForTouchDown:@{} and:^() {
+           view.layer.borderWidth = 0;
+           arrow.textColor = [UIColor systemGreenColor];
+       }];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSDictionary * dict = dataList[indexPath.row];
-    
-    [self didRequestPicture:dict[@"id"] andTitle: dict[@"description"]];
 }
 
 @end

@@ -232,7 +232,7 @@
 
                     web.label = @"Hướng dẫn sử dụng";
 
-                    web.url = @"https://drive.google.com/file/d/1KlECpqY4VbqxhQHDOu4jROT0e7oNeR10/view";
+                    web.url = @"https://drive.google.com/drive/u/1/folders/1ffzdlFMJFqpnMb7TjBQaNDbnH2EZfdNT";
 
                     [self.navigationController pushViewController:web animated:YES];
                     

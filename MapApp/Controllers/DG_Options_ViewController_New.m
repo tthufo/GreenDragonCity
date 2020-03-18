@@ -147,32 +147,7 @@
                                                  }];
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return intros ? intros.count : dataList.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 70;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Option_Cell" forIndexPath:indexPath];
-
-    NSDictionary * dict = intros ? intros[indexPath.row] : dataList[indexPath.row];
-    
-    [(UILabel*)[self withView:cell tag:12] setText:[NSString stringWithFormat:@"   %@", dict[@"description"]]];
-
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+- (void)didPressOption:(NSIndexPath*)indexPath {
     NSDictionary * dict = intros ? intros[indexPath.row] : dataList[indexPath.row];
 
     if (intros) {
@@ -198,16 +173,59 @@
     } else {
         if ([[dict getValueFromKey:@"has_sub_album"] isEqualToString:@"1"]) {
             DG_Options_ViewController_New * option = [DG_Options_ViewController_New new];
-            
+
             option.isHide = [dict getValueFromKey:@"id"];
-            
+
             option.titleLabel = dict[@"description"];
-            
+
             [self.navigationController pushViewController:option animated:YES];
         } else {
             [self didRequestPicture:dict[@"id"] andTitle: dict[@"description"]];
         }
     }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return intros ? intros.count : dataList.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Option_Cell" forIndexPath:indexPath];
+
+    NSDictionary * dict = intros ? intros[indexPath.row] : dataList[indexPath.row];
+    
+    UIButton * menu = (UIButton*)[self withView:cell tag:12];
+    
+    [menu setTitle:[NSString stringWithFormat:@"   %@", dict[@"description"]] forState:UIControlStateNormal];
+
+    UIView * view = (UIView*)[self withView:cell tag:155];
+    
+    UILabel * arrow = (UILabel*)[self withView:cell tag:989];
+
+    [menu actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+        [self didPressOption:indexPath];
+        view.layer.borderWidth = 1;
+        arrow.textColor = [UIColor blackColor];
+    }];
+    
+    [menu actionForTouchDown:@{} and:^() {
+        view.layer.borderWidth = 0;
+        arrow.textColor = [UIColor systemGreenColor];
+    }];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

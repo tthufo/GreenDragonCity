@@ -52,7 +52,7 @@
     
     [tableView withCell:@"E_Empty_Music"];
     
-    [tableView withCell:@"List_Cell"];
+    [tableView withCell:@"Option_Cell_New"];
     
     if([label isEqualToString:@"TIN TỨC"])
     {
@@ -118,44 +118,104 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return dataList.count == 0 ? tableView.frame.size.height : 81;
+    return dataList.count == 0 ? tableView.frame.size.height : 70;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return dataList.count == 0 ? 1 : dataList.count;
+    return dataList.count ;//== 0 ? 1 : dataList.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: dataList.count == 0 ? @"E_Empty_Music" : @"List_Cell"];
+//    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: dataList.count == 0 ? @"E_Empty_Music" : @"Option_Cell_New"];
+//
+//    if (!cell)
+//    {
+//        cell = [[NSBundle mainBundle] loadNibNamed:@"EM_Menu" owner:nil options:nil][2];
+//    }
+//
+//    if(dataList.count == 0)
+//    {
+//        ((UILabel*)[self withView:cell tag:11]).text = @"Danh sách trống";
+//
+//        return cell;
+//    }
+//
+//    if([label isEqualToString:@"VIDEOS"])
+//    {
+//        ((UIImageView*)[self withView:cell tag:11]).image = [UIImage imageNamed:@"video_xanh"];
+//
+//        [(UILabel*)[self withView:cell tag:12] setText:dataList[indexPath.row][@"description"]];
+//    }
+//    else
+//    {
+//        [(UIImageView*)[self withView:cell tag:11] imageUrl:[dataList[indexPath.row][@"avatar"] encodeUrl]];
+//    }
     
-    if (!cell)
-    {
-        cell = [[NSBundle mainBundle] loadNibNamed:@"EM_Menu" owner:nil options:nil][2];
-    }
-    
-    if(dataList.count == 0)
-    {
-        ((UILabel*)[self withView:cell tag:11]).text = @"Danh sách trống";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Option_Cell_New" forIndexPath:indexPath];
+
+       NSDictionary * dict = dataList[indexPath.row];
+       
+       UIButton * menu = (UIButton*)[self withView:cell tag:12];
+          
+          [menu setTitle:[NSString stringWithFormat:@"               %@", dict[@"description"]] forState:UIControlStateNormal];
+
+          UIView * view = (UIView*)[self withView:cell tag:155];
+          
+          UILabel * arrow = (UILabel*)[self withView:cell tag:989];
+
+          [menu actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+              [self didPressRow:indexPath];
+              view.layer.borderWidth = 1;
+              arrow.textColor = [UIColor blackColor];
+          }];
+          
+          [menu actionForTouchDown:@{} and:^() {
+              view.layer.borderWidth = 0;
+              arrow.textColor = [UIColor systemGreenColor];
+          }];
         
-        return cell;
-    }
-    
-    if([label isEqualToString:@"VIDEOS"])
-    {
-        ((UIImageView*)[self withView:cell tag:11]).image = [UIImage imageNamed:@"video_xanh"];
-        
-        [(UILabel*)[self withView:cell tag:12] setText:dataList[indexPath.row][@"description"]];
-    }
-    else
-    {
-        [(UIImageView*)[self withView:cell tag:11] imageUrl:[dataList[indexPath.row][@"avatar"] encodeUrl]];
-    }
-    
-//    [(UILabel*)[self withView:cell tag:12] setText:dataList[indexPath.row][@"title"]];
-    
     return cell;
+}
+
+- (void)didPressRow:(NSIndexPath*)indexPath {
+    NSString * content = dataList[indexPath.row][@"url"];
+       
+       if([label isEqualToString:@"VIDEOS"])
+       {
+           [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:[self link:content] completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
+               
+               [self hideSVHUD];
+
+               if (video)
+               {
+                   NSDictionary *streamURLs = video.streamURLs;
+                   NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualityMedium360)] ;
+
+                   AVPlayer *player = [AVPlayer playerWithURL:streamURL];
+                   AVPlayerViewController *playerViewController = [AVPlayerViewController new];
+                   playerViewController.player = player;
+                   [self presentViewController:playerViewController animated:YES completion:^{
+                       [playerViewController.player play];
+                   }];
+               }
+               else
+               {
+                   [self alert:@"Thông báo" message:error.localizedDescription];
+               }
+           }];
+       }
+       else
+       {
+           AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+           
+           web.content = content;
+           
+           web.label = dataList[indexPath.row][@"title"];
+           
+           [self.navigationController pushViewController:web animated:YES];
+       }
 }
 
 - (NSString *)link:(NSString *)link {
@@ -181,42 +241,42 @@
         return;
     }
     
-    NSString * content = dataList[indexPath.row][@"url"];
-    
-    if([label isEqualToString:@"VIDEOS"])
-    {
-        [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:[self link:content] completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
-            
-            [self hideSVHUD];
-
-            if (video)
-            {
-                NSDictionary *streamURLs = video.streamURLs;
-                NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualityMedium360)] ;
-
-                AVPlayer *player = [AVPlayer playerWithURL:streamURL];
-                AVPlayerViewController *playerViewController = [AVPlayerViewController new];
-                playerViewController.player = player;
-                [self presentViewController:playerViewController animated:YES completion:^{
-                    [playerViewController.player play];
-                }];
-            }
-            else
-            {                
-                [self alert:@"Thông báo" message:error.localizedDescription];
-            }
-        }];
-    }
-    else
-    {
-        AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
-        
-        web.content = content;
-        
-        web.label = dataList[indexPath.row][@"title"];
-        
-        [self.navigationController pushViewController:web animated:YES];
-    }
+//    NSString * content = dataList[indexPath.row][@"url"];
+//
+//    if([label isEqualToString:@"VIDEOS"])
+//    {
+//        [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:[self link:content] completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
+//
+//            [self hideSVHUD];
+//
+//            if (video)
+//            {
+//                NSDictionary *streamURLs = video.streamURLs;
+//                NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualityMedium360)] ;
+//
+//                AVPlayer *player = [AVPlayer playerWithURL:streamURL];
+//                AVPlayerViewController *playerViewController = [AVPlayerViewController new];
+//                playerViewController.player = player;
+//                [self presentViewController:playerViewController animated:YES completion:^{
+//                    [playerViewController.player play];
+//                }];
+//            }
+//            else
+//            {
+//                [self alert:@"Thông báo" message:error.localizedDescription];
+//            }
+//        }];
+//    }
+//    else
+//    {
+//        AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+//
+//        web.content = content;
+//
+//        web.label = dataList[indexPath.row][@"title"];
+//
+//        [self.navigationController pushViewController:web animated:YES];
+//    }
 }
 
 @end

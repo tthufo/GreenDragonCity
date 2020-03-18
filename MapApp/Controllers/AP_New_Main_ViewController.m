@@ -224,9 +224,6 @@
         menu.backgroundColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
         ava.image = [UIImage imageNamed:dict[@"img"]];
         titles.textColor = [AVHexColor colorWithHexString:dict[@"title_down"]];
-//        menu.backgroundColor = [AVHexColor colorWithHexString:dict[@"title_down"]];
-//        ava.image = [UIImage imageNamed:dict[@"img_down"]];
-//        titles.textColor = [AVHexColor colorWithHexString:dict[@"title_up"]];
         [self didPressRow:dict andIndex:indexPath.row];
     }];
     

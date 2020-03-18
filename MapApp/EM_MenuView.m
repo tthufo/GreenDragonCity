@@ -84,7 +84,7 @@
 {
     BOOL show = NO;//; [[ObjectInfo shareInstance].login isEqualToString:@"Yes"];
     
-    UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, show ? 215 : 176)];
+    UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, show ? 215 : 138)];
     
     [commentView withBorder:@{@"Bcolor":[UIColor whiteColor],@"Bcorner":@(5),@"Bwidth":@(0)}];
     
