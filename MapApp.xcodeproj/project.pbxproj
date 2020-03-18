@@ -81,6 +81,7 @@
 		FCD4C27320809D2D00EF0DBB /* format.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD4C27220809D2C00EF0DBB /* format.plist */; };
 		FCD4C27520809D5D00EF0DBB /* Cells.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD4C27420809D5D00EF0DBB /* Cells.xib */; };
 		FCDF7FBB2421E990009D3C0B /* Option_Cell_New.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDF7FBA2421E98F009D3C0B /* Option_Cell_New.xib */; };
+		FCDF7FBD2421F8E6009D3C0B /* Inner_Cell_Web.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDF7FBC2421F8E6009D3C0B /* Inner_Cell_Web.xib */; };
 		FCE4C8E3209317B100775A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE4C8E2209317B100775A98 /* Assets.xcassets */; };
 		FCED49C92083C05500DEE007 /* Annotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCED49C82083C05500DEE007 /* Annotation.xib */; };
 		FCF253CA207EF52700BC12F5 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF253C9207EF52700BC12F5 /* ObjectInfo.m */; };
@@ -208,6 +209,7 @@
 		FCD4C27220809D2C00EF0DBB /* format.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = format.plist; sourceTree = "<group>"; };
 		FCD4C27420809D5D00EF0DBB /* Cells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cells.xib; sourceTree = "<group>"; };
 		FCDF7FBA2421E98F009D3C0B /* Option_Cell_New.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Option_Cell_New.xib; sourceTree = "<group>"; };
+		FCDF7FBC2421F8E6009D3C0B /* Inner_Cell_Web.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Inner_Cell_Web.xib; sourceTree = "<group>"; };
 		FCE4C8E2209317B100775A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCED49C82083C05500DEE007 /* Annotation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Annotation.xib; sourceTree = "<group>"; };
 		FCF253C8207EF52700BC12F5 /* ObjectInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectInfo.h; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				FC16CC0220865E7A00F08568 /* AP_Inner_Web_ViewController.h */,
 				FC16CC0320865E7A00F08568 /* AP_Inner_Web_ViewController.m */,
 				FC16CC0420865E7A00F08568 /* AP_Inner_Web_ViewController.xib */,
+				FCDF7FBC2421F8E6009D3C0B /* Inner_Cell_Web.xib */,
 				FC16CC0720865EEC00F08568 /* AP_Inner_Gallery_ViewController.h */,
 				FC16CC0820865EEC00F08568 /* AP_Inner_Gallery_ViewController.m */,
 				FC16CC0920865EEC00F08568 /* AP_Inner_Gallery_ViewController.xib */,
@@ -492,6 +495,7 @@
 				FC2FDC5D227CC0B800055BFC /* horoscope.txt in Resources */,
 				FC7221B1207CA8E60058429E /* AP_TextField_Cell.xib in Resources */,
 				FC22EEE420845F070027DF8A /* E_Empty_Music.xib in Resources */,
+				FCDF7FBD2421F8E6009D3C0B /* Inner_Cell_Web.xib in Resources */,
 				FC2FDC5F227D3D5500055BFC /* test.txt in Resources */,
 				FC458C3724058B9500719F8C /* DG_Options_ViewController_New.xib in Resources */,
 				FC22EEE120845ED50027DF8A /* E_OverLay_View.xib in Resources */,
@@ -738,7 +742,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development: Huy Nguyen (S6X8K9KLV3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,7 +773,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Distribution: 3D ART DESIGN CONSULTANCY AND TECHNOLOGY SOLUTION JOINT STOCK COMPANY (3L2APQ2D3U)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 3L2APQ2D3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

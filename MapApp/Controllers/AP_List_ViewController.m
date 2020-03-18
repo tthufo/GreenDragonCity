@@ -155,26 +155,26 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Option_Cell_New" forIndexPath:indexPath];
 
-       NSDictionary * dict = dataList[indexPath.row];
+    NSDictionary * dict = dataList[indexPath.row];
        
-       UIButton * menu = (UIButton*)[self withView:cell tag:12];
+    UIButton * menu = (UIButton*)[self withView:cell tag:12];
           
-          [menu setTitle:[NSString stringWithFormat:@"               %@", dict[@"description"]] forState:UIControlStateNormal];
+      [menu setTitle:[NSString stringWithFormat:@"             %@", dict[@"description"]] forState:UIControlStateNormal];
 
-          UIView * view = (UIView*)[self withView:cell tag:155];
-          
-          UILabel * arrow = (UILabel*)[self withView:cell tag:989];
+      UIView * view = (UIView*)[self withView:cell tag:155];
+      
+      UILabel * arrow = (UILabel*)[self withView:cell tag:989];
 
-          [menu actionForTouch:@{} and:^(NSDictionary *touchInfo) {
-              [self didPressRow:indexPath];
-              view.layer.borderWidth = 1;
-              arrow.textColor = [UIColor blackColor];
-          }];
-          
-          [menu actionForTouchDown:@{} and:^() {
-              view.layer.borderWidth = 0;
-              arrow.textColor = [UIColor systemGreenColor];
-          }];
+      [menu actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+          [self didPressRow:indexPath];
+          view.layer.borderWidth = 1;
+          arrow.textColor = [UIColor blackColor];
+      }];
+      
+      [menu actionForTouchDown:@{} and:^() {
+          view.layer.borderWidth = 0;
+          arrow.textColor = [UIColor systemGreenColor];
+      }];
         
     return cell;
 }

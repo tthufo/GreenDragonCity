@@ -95,7 +95,7 @@
     
     AP_Inner_Web_ViewController * web = [AP_Inner_Web_ViewController new];
     
-    NSMutableDictionary * webInfo = [[NSMutableDictionary alloc] initWithDictionary:self.info];
+    NSMutableDictionary * webInfo = [[NSMutableDictionary alloc] initWithDictionary: self.info];
     
     webInfo[@"type"] = @"0";
     

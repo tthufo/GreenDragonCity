@@ -626,12 +626,12 @@
 - (void)didRequestPositionInfo:(NSString*)loId andLat:(float)lat andLng:(float)lng
 {
 //    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":[NSString stringWithFormat:@"point/lo/info/%@", loId],
-    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":@"point/lo",
+    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":@"v2/point/lo",
                                                  @"lat":@(lat),
                                                  @"lng":@(lng),
                                                  @"overrideAlert":@(1),
 //                                                 @"method":@"GET",
-                                                 @"postFix": @"point/lo"
+                                                 @"postFix": @"v2/point/lo"
                                                  } withCache:^(NSString *cacheString) {
                                                      
                                                  } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
@@ -767,13 +767,13 @@
 {
     [renderer clear];
     
-    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":@"point/lo",
+    [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":@"v2/point/lo",
                                                  @"lat":@(lat),
                                                  @"lng":@(lng),
                                                  @"overrideAlert":@(1),
 //                                                 @"host":self,
 //                                                 @"overrideLoading":@(1),
-                                                 @"postFix":@"point/lo"
+                                                 @"postFix":@"v2/point/lo"
                                                  } withCache:^(NSString *cacheString) {
                                                      
                                                  } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary* header) {
