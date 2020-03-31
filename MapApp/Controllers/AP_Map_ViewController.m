@@ -268,12 +268,30 @@
                     break;
                 case 2:
                 {
-                    [self didPressDate];
+                    [[DropAlert shareInstance] alertWithInfor:@{@"title":@"Thông báo", @"message":@"Bạn có muốn đăng xuất ra khỏi tài khoản này?", @"buttons":@[@"Đăng xuất"], @"cancel":@"Thoát"} andCompletion:^(int indexButton, id object) {
+
+                        if(indexButton == 0)
+                        {
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+
+                            [self removeObject:@"setting"];
+                            
+                            [self removeValue:@"name"];
+                            
+                            [self removeValue:@"pass"];
+                        }
+
+                    }];
                 }
                     break;
                 case 3:
                 {
                     [self didPressDate];
+                }
+                    break;
+                case 100:
+                {
+                    exit(0);
                 }
                     break;
                 default:

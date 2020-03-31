@@ -38,7 +38,7 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }
     
-    DashBoard_ViewController * login = [DashBoard_ViewController new];
+    AP_Login_ViewController * login = [AP_Login_ViewController new];
     
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];
     

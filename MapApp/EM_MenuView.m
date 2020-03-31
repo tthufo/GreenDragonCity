@@ -84,7 +84,7 @@
 {
     BOOL show = NO;//; [[ObjectInfo shareInstance].login isEqualToString:@"Yes"];
     
-    UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, show ? 215 : 138)];
+    UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, show ? 215 : 186)];
     
     [commentView withBorder:@{@"Bcolor":[UIColor whiteColor],@"Bcorner":@(5),@"Bwidth":@(0)}];
     
@@ -123,6 +123,14 @@
         self.menuCompletion(3, nil, self);
         
     }];
+    
+    [(UIButton*)[self withView:contentView tag:100] actionForTouch:@{} and:^(NSDictionary *touchInfo) {
+           
+           [self close];
+           
+           self.menuCompletion(100, nil, self);
+           
+       }];
     
     [commentView addSubview:contentView];
     

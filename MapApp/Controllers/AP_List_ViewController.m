@@ -75,7 +75,7 @@
     }
     else
     {
-        if([label isEqualToString:@"VIDEOS"])
+        if([label isEqualToString:@"Video"])
         {
             [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"http://45.117.169.237/layer/LL-CD27B89C/video",
             @"method":@"GET",
@@ -97,6 +97,16 @@
         
                 [tableView cellVisible];
             }];
+        }
+        
+        if([label isEqualToString:@"Sản phẩm"])
+        {
+            [dataList addObjectsFromArray:@[@{@"description":@"Biệt thự", @"url":@"http://45.117.169.237/upload/documents/biet-thu.html"},
+                                            @{@"description":@"Liền kề", @"url":@"http://45.117.169.237/upload/documents/lien-ke.html"},
+                                            @{@"description":@"Shophouse", @"url":@"http://45.117.169.237/upload/documents/shophouse.html"}
+            ]];
+                   
+             [tableView cellVisible];
         }
         
 //        NSError *error;
@@ -208,13 +218,23 @@
        }
        else
        {
-           AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
-           
-           web.content = content;
-           
-           web.label = dataList[indexPath.row][@"title"];
-           
-           [self.navigationController pushViewController:web animated:YES];
+           if([label isEqualToString:@"Sản phẩm"]) {
+               AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+               
+               web.label = dataList[indexPath.row][@"description"];
+               
+               web.url = dataList[indexPath.row][@"url"];
+               
+               [self.navigationController pushViewController:web animated:YES];
+           } else {
+               AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+               
+               web.content = content;
+               
+               web.label = dataList[indexPath.row][@"title"];
+               
+               [self.navigationController pushViewController:web animated:YES];
+           }
        }
 }
 

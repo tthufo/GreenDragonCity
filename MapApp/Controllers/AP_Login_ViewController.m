@@ -14,6 +14,8 @@
 
 #import "AP_New_Main_ViewController.h"
 
+#import "DashBoard_ViewController.h"
+
 #import "XMLReader.h"
 
 @interface AP_Login_ViewController ()<RegisterDelegate>
@@ -122,9 +124,19 @@
 
             [ObjectInfo shareInstance].token = [strFileContent objectFromJSONString][@"access_token"];
 
-            [self.navigationController pushViewController:[AP_New_Main_ViewController new] animated:NO];
+            [self.navigationController pushViewController:[DashBoard_ViewController new] animated:NO];
         }
     }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    uName.text = @"";
+    
+    pass.text = @"";
+
+    phone.text = @"";
 }
 
 - (NSDictionary*)returnDictionary:(NSDictionary*)dict
@@ -253,7 +265,7 @@
                                                                  [self removeValue:@"pass"];
                                                              }
                                                              
-                                                             [self.navigationController pushViewController:[AP_New_Main_ViewController new] animated:YES];
+                                                             [self.navigationController pushViewController:[DashBoard_ViewController new] animated:YES];
 //                                                             [self.navigationController pushViewController:[AP_Map_ViewController new] animated:YES];
                                                          }
                                                          

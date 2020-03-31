@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashBoard_ViewController">
             <connections>
+                <outlet property="bottomHeight" destination="x7n-Fr-fgR" id="msb-WY-gRQ"/>
+                <outlet property="playerView" destination="UpJ-nY-mNR" id="g68-eg-LKg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +28,34 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpJ-nY-mNR">
                     <rect key="frame" x="0.0" y="88" width="320" height="186"/>
-                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IjZ-WT-Gaj">
+                            <rect key="frame" x="141.5" y="74.5" width="37" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="43g-CN-nxj"/>
+                                <constraint firstAttribute="width" constant="37" id="KSI-fj-VTT"/>
+                            </constraints>
+                        </activityIndicatorView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAB-qi-lAB">
+                            <rect key="frame" x="8" y="138" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="EQz-Ag-cPX"/>
+                                <constraint firstAttribute="height" constant="40" id="KXT-E6-8sR"/>
+                            </constraints>
+                            <state key="normal" image="sound_ac"/>
+                            <connections>
+                                <action selector="didPressSound:" destination="-1" eventType="touchUpInside" id="7q8-AZ-c7s"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="186" id="3Nm-jP-J1P"/>
+                        <constraint firstItem="IjZ-WT-Gaj" firstAttribute="centerX" secondItem="UpJ-nY-mNR" secondAttribute="centerX" id="Oxg-K4-uZL"/>
+                        <constraint firstItem="IjZ-WT-Gaj" firstAttribute="centerY" secondItem="UpJ-nY-mNR" secondAttribute="centerY" id="fTg-AF-IvK"/>
+                        <constraint firstItem="hAB-qi-lAB" firstAttribute="leading" secondItem="UpJ-nY-mNR" secondAttribute="leading" constant="8" id="sY0-1R-HcY"/>
+                        <constraint firstAttribute="bottom" secondItem="hAB-qi-lAB" secondAttribute="bottom" constant="8" id="vJt-aA-epe"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6l-4u-c6C">
                     <rect key="frame" x="0.0" y="282" width="320" height="120"/>
@@ -37,9 +66,12 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6W-Sa-ZW8">
                                     <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQN-Ym-my5">
+                                        <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQN-Ym-my5">
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_gt_nm"/>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="eUV-8E-zti"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -53,9 +85,12 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3G-ui-1no">
                                     <rect key="frame" x="53.5" y="0.0" width="53" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DM-Dv-l6R">
+                                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DM-Dv-l6R">
                                             <rect key="frame" x="0.0" y="0.0" width="53" height="60"/>
                                             <state key="normal" image="ic_bt_qm_nm"/>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="1o8-wM-KCq"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -69,9 +104,12 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaZ-gO-yKq">
                                     <rect key="frame" x="106.5" y="0.0" width="53.5" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcf-HP-Qur">
+                                        <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcf-HP-Qur">
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_vt_nm"/>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="hnw-Ek-c9w"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -85,9 +123,12 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2e6-YX-ak5">
                                     <rect key="frame" x="160" y="0.0" width="53.5" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQv-SF-sbo">
+                                        <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQv-SF-sbo">
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_sp_nm"/>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="WvH-NR-bgF"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -101,9 +142,12 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-pT-wf3">
                                     <rect key="frame" x="213.5" y="0.0" width="53" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8B-wA-jXN">
+                                        <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8B-wA-jXN">
                                             <rect key="frame" x="0.0" y="0.0" width="53" height="60"/>
                                             <state key="normal" image="ic_bt_ti_nm"/>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="QIH-qX-3ew"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -117,9 +161,12 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPt-PQ-7Rs">
                                     <rect key="frame" x="266.5" y="0.0" width="53.5" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKN-MO-Jq4">
+                                        <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKN-MO-Jq4">
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_cdt_nm"/>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="7PJ-Dr-dC5"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -136,7 +183,7 @@
                                 <constraint firstAttribute="height" constant="60" id="aUf-Z9-6o7"/>
                             </constraints>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRs-ug-Dkj">
+                        <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRs-ug-Dkj">
                             <rect key="frame" x="70" y="76" width="180" height="44"/>
                             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -158,6 +205,9 @@
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="y6h-lO-ZJV"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,21 +230,35 @@
                                 <constraint firstAttribute="height" constant="2" id="EWt-k6-nH8"/>
                             </constraints>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="3" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSw-zG-NER">
-                            <rect key="frame" x="0.0" y="10" width="320" height="140"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSw-zG-NER">
+                            <rect key="frame" x="4" y="10" width="312" height="140"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frV-kL-7UG">
-                                    <rect key="frame" x="0.0" y="0.0" width="78" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="76" height="140"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1" translatesAutoresizingMaskIntoConstraints="NO" id="eKe-r0-vGP">
-                                            <rect key="frame" x="0.0" y="0.0" width="78" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="76" height="140"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-jo-UwK">
-                                            <rect key="frame" x="0.0" y="0.0" width="78" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <button opaque="NO" clipsSubviews="YES" tag="18" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-jo-UwK">
+                                            <rect key="frame" x="0.0" y="0.0" width="76" height="130"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <state key="normal" title="Ảnh">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="v5c-cX-dQ1"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -210,17 +274,31 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-LF-KLM">
-                                    <rect key="frame" x="81" y="0.0" width="77.5" height="140"/>
+                                    <rect key="frame" x="79" y="0.0" width="75.5" height="140"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_2" translatesAutoresizingMaskIntoConstraints="NO" id="is6-Fu-Tgw">
-                                            <rect key="frame" x="0.0" y="0.0" width="77.5" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75.5" height="140"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv4-8Q-gbt">
-                                            <rect key="frame" x="0.0" y="0.0" width="77.5" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <button opaque="NO" clipsSubviews="YES" tag="19" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv4-8Q-gbt">
+                                            <rect key="frame" x="0.0" y="0.0" width="75.5" height="130"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <state key="normal" title="Video">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="Lgu-Ro-hVV"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -236,17 +314,31 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bH-SV-wsw">
-                                    <rect key="frame" x="161.5" y="0.0" width="78" height="140"/>
+                                    <rect key="frame" x="157.5" y="0.0" width="76" height="140"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_3" translatesAutoresizingMaskIntoConstraints="NO" id="Lor-NU-jng">
-                                            <rect key="frame" x="0.0" y="0.0" width="78" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="76" height="140"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bee-zy-H1b">
-                                            <rect key="frame" x="0.0" y="0.0" width="78" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <button opaque="NO" clipsSubviews="YES" tag="20" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bee-zy-H1b">
+                                            <rect key="frame" x="0.0" y="0.0" width="76" height="130"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <state key="normal" title="360 Tour">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="fUm-Jg-P6F"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -262,18 +354,32 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vN-CP-pe7">
-                                    <rect key="frame" x="242.5" y="0.0" width="77.5" height="140"/>
+                                    <rect key="frame" x="236.5" y="0.0" width="75.5" height="140"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_4" translatesAutoresizingMaskIntoConstraints="NO" id="kJP-BP-pgG">
-                                            <rect key="frame" x="0.0" y="0.0" width="77.5" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75.5" height="140"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAV-e4-7vO">
-                                            <rect key="frame" x="0.0" y="0.0" width="77.5" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <button opaque="NO" clipsSubviews="YES" tag="21" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAV-e4-7vO">
+                                            <rect key="frame" x="0.0" y="0.0" width="75.5" height="130"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <state key="normal" title="Tài liệu bán hàng">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="kTa-kn-6Od"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -294,12 +400,12 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="NSw-zG-NER" firstAttribute="top" secondItem="PQF-Uo-EUH" secondAttribute="top" constant="10" id="4a7-Ix-KRv"/>
-                        <constraint firstAttribute="trailing" secondItem="NSw-zG-NER" secondAttribute="trailing" id="94a-UY-pu5"/>
+                        <constraint firstAttribute="trailing" secondItem="NSw-zG-NER" secondAttribute="trailing" constant="4" id="94a-UY-pu5"/>
                         <constraint firstItem="T4d-lq-UtR" firstAttribute="top" secondItem="PQF-Uo-EUH" secondAttribute="top" id="Akz-Ae-Jdd"/>
                         <constraint firstAttribute="bottom" secondItem="NSw-zG-NER" secondAttribute="bottom" id="BKX-yW-Aw9"/>
                         <constraint firstItem="T4d-lq-UtR" firstAttribute="leading" secondItem="PQF-Uo-EUH" secondAttribute="leading" id="P1C-rV-SVC"/>
                         <constraint firstAttribute="trailing" secondItem="T4d-lq-UtR" secondAttribute="trailing" id="j4X-9n-c4U"/>
-                        <constraint firstItem="NSw-zG-NER" firstAttribute="leading" secondItem="PQF-Uo-EUH" secondAttribute="leading" id="l5m-Qr-eJu"/>
+                        <constraint firstItem="NSw-zG-NER" firstAttribute="leading" secondItem="PQF-Uo-EUH" secondAttribute="leading" constant="4" id="l5m-Qr-eJu"/>
                         <constraint firstAttribute="height" constant="150" id="x7n-Fr-fgR"/>
                     </constraints>
                 </view>
@@ -336,5 +442,6 @@
         <image name="ic_bt_ti_nm" width="45" height="48.5"/>
         <image name="ic_bt_vt_nm" width="37.5" height="47"/>
         <image name="main_ic_duan" width="339" height="89"/>
+        <image name="sound_ac" width="42.5" height="42.5"/>
     </resources>
 </document>
