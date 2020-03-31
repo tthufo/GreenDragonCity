@@ -16,33 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="giaodien" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-4x-AoH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cg_bg_flash_screen-1" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-4x-AoH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="n8k-uZ-2nd">
-                                <rect key="frame" x="27.5" y="253.5" width="320" height="160"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_duan" translatesAutoresizingMaskIntoConstraints="NO" id="n8k-uZ-2nd">
+                                <rect key="frame" x="40" y="30" width="295" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="Ect-vk-eyf"/>
-                                    <constraint firstAttribute="height" constant="160" id="cP1-Gp-cRg"/>
+                                    <constraint firstAttribute="height" constant="160" id="TyK-g0-hrm"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJy-wc-mYY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.58844080109999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fJy-wc-mYY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6gx-Nd-zKS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L9g-4x-AoH" secondAttribute="bottom" id="ESg-c6-beX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n8k-uZ-2nd" secondAttribute="trailing" constant="40" id="Kp8-GI-zPi"/>
                             <constraint firstItem="L9g-4x-AoH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="S1L-ZB-Deh"/>
-                            <constraint firstItem="fJy-wc-mYY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SNv-ov-RFC"/>
-                            <constraint firstItem="n8k-uZ-2nd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="f8i-xe-eBh"/>
-                            <constraint firstItem="fJy-wc-mYY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gFc-Yi-6MM"/>
+                            <constraint firstItem="n8k-uZ-2nd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="e3a-cm-q7P"/>
+                            <constraint firstItem="n8k-uZ-2nd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="met-vw-Shm"/>
                             <constraint firstItem="L9g-4x-AoH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n6T-Am-0fZ"/>
                             <constraint firstItem="L9g-4x-AoH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oFo-2T-tDP"/>
-                            <constraint firstItem="fJy-wc-mYY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vsQ-4w-Qba"/>
-                            <constraint firstItem="n8k-uZ-2nd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="zlC-Kb-ENT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -53,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="giaodien" width="413.5" height="735.5"/>
-        <image name="logo" width="1180.5" height="710.5"/>
+        <image name="cg_bg_flash_screen-1" width="360" height="640"/>
+        <image name="ic_duan" width="363" height="108.5"/>
     </resources>
 </document>

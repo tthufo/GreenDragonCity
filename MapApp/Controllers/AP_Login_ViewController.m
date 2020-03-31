@@ -18,7 +18,7 @@
 
 @interface AP_Login_ViewController ()<RegisterDelegate>
 {
-    IBOutlet UITextField * uName, * pass;
+    IBOutlet UITextField * uName, * pass, * phone;
     
     IBOutlet UIButton * check;
     
@@ -69,7 +69,7 @@
     NSDictionary *textAttributes =
     @{ NSForegroundColorAttributeName: [UIColor whiteColor] };
     NSAttributedString *attributedPlaceholder =
-    [[NSAttributedString alloc] initWithString:@"Tên đăng nhập"
+    [[NSAttributedString alloc] initWithString:@"TÊN ĐĂNG NHÂP"
                                     attributes:textAttributes];
 
     [uName setAttributedPlaceholder:attributedPlaceholder];
@@ -78,11 +78,19 @@
     NSDictionary *textAttributes1 =
     @{ NSForegroundColorAttributeName: [UIColor whiteColor] };
     NSAttributedString *attributedPlaceholder1 =
-    [[NSAttributedString alloc] initWithString:@"Mật khẩu"
+    [[NSAttributedString alloc] initWithString:@"MẬT KHẨU"
                                     attributes:textAttributes1];
 
     [pass setAttributedPlaceholder:attributedPlaceholder1];
         
+    NSDictionary *textAttributes2 =
+    @{ NSForegroundColorAttributeName: [UIColor whiteColor] };
+    NSAttributedString *attributedPlaceholder2 =
+    [[NSAttributedString alloc] initWithString:@"SỐ ĐIỆN THOAI"
+                                    attributes:textAttributes2];
+
+    [phone setAttributedPlaceholder:attributedPlaceholder2];
+
     [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"https://dl.dropboxusercontent.com/s/h8616h5lhg705l7/GreenDragon.plist",@"overrideError":@(1),@"overrideLoading":@(1),@"host":self} withCache:^(NSString *cacheString) {
     } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary *header) {
 
@@ -216,6 +224,7 @@
     [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":@"account/Token",
                                                  @"Username":uName.text,
                                                  @"Password":pass.text,
+                                                 @"Phone":phone.text,
                                                  @"overrideLoading":@(1),
                                                  @"host":self,
                                                  @"overrideAlert":@(1),
@@ -275,7 +284,7 @@
 
 - (BOOL)isValid
 {
-    return [uName hasText] && [pass hasText];
+    return [uName hasText] && [pass hasText] && [phone hasText];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

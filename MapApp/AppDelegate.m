@@ -14,6 +14,8 @@
 
 #import "AP_New_Main_ViewController.h"
 
+#import "DashBoard_ViewController.h"
+
 @import GoogleMaps;
 
 
@@ -36,7 +38,7 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }
     
-    AP_Login_ViewController * login = [AP_Login_ViewController new];
+    DashBoard_ViewController * login = [DashBoard_ViewController new];
     
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];
     

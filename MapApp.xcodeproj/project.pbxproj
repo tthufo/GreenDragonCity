@@ -84,6 +84,8 @@
 		FCDF7FBD2421F8E6009D3C0B /* Inner_Cell_Web.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDF7FBC2421F8E6009D3C0B /* Inner_Cell_Web.xib */; };
 		FCE4C8E3209317B100775A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE4C8E2209317B100775A98 /* Assets.xcassets */; };
 		FCED49C92083C05500DEE007 /* Annotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCED49C82083C05500DEE007 /* Annotation.xib */; };
+		FCEFE3DD243316CE00005418 /* DashBoard_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEFE3DB243316CE00005418 /* DashBoard_ViewController.m */; };
+		FCEFE3DE243316CE00005418 /* DashBoard_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCEFE3DC243316CE00005418 /* DashBoard_ViewController.xib */; };
 		FCF253CA207EF52700BC12F5 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF253C9207EF52700BC12F5 /* ObjectInfo.m */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +214,9 @@
 		FCDF7FBC2421F8E6009D3C0B /* Inner_Cell_Web.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Inner_Cell_Web.xib; sourceTree = "<group>"; };
 		FCE4C8E2209317B100775A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCED49C82083C05500DEE007 /* Annotation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Annotation.xib; sourceTree = "<group>"; };
+		FCEFE3DA243316CE00005418 /* DashBoard_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashBoard_ViewController.h; sourceTree = "<group>"; };
+		FCEFE3DB243316CE00005418 /* DashBoard_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashBoard_ViewController.m; sourceTree = "<group>"; };
+		FCEFE3DC243316CE00005418 /* DashBoard_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashBoard_ViewController.xib; sourceTree = "<group>"; };
 		FCF253C8207EF52700BC12F5 /* ObjectInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectInfo.h; sourceTree = "<group>"; };
 		FCF253C9207EF52700BC12F5 /* ObjectInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -377,6 +382,9 @@
 				FC458C3524058B9500719F8C /* DG_Options_ViewController_New.xib */,
 				FC01EB6823BB699200E6BD0E /* Option_Cell.xib */,
 				FCDF7FBA2421E98F009D3C0B /* Option_Cell_New.xib */,
+				FCEFE3DA243316CE00005418 /* DashBoard_ViewController.h */,
+				FCEFE3DB243316CE00005418 /* DashBoard_ViewController.m */,
+				FCEFE3DC243316CE00005418 /* DashBoard_ViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -490,6 +498,7 @@
 				FC722196207B51D30058429E /* LaunchScreen.storyboard in Resources */,
 				FCD4C27520809D5D00EF0DBB /* Cells.xib in Resources */,
 				FCC4BA8C23FE7C7300F336F4 /* E_Main_Button_View.xib in Resources */,
+				FCEFE3DE243316CE00005418 /* DashBoard_ViewController.xib in Resources */,
 				FC16CC0B20865EEC00F08568 /* AP_Inner_Gallery_ViewController.xib in Resources */,
 				FC16CC0620865E7A00F08568 /* AP_Inner_Web_ViewController.xib in Resources */,
 				FC2FDC5D227CC0B800055BFC /* horoscope.txt in Resources */,
@@ -582,6 +591,7 @@
 				FC72218B207B51D30058429E /* AppDelegate.m in Sources */,
 				FC458C5A2405A2E500719F8C /* XCDYouTubeDashManifestXML.m in Sources */,
 				FC4F33F720B4290900EAF7E5 /* AP_Inner_Info_ViewController.m in Sources */,
+				FCEFE3DD243316CE00005418 /* DashBoard_ViewController.m in Sources */,
 				FC7221A9207C64DC0058429E /* AP_Map_ViewController.m in Sources */,
 				FC22EEE220845ED50027DF8A /* E_Overlay_Menu.m in Sources */,
 				FC458C592405A2E500719F8C /* XCDYouTubeVideo.m in Sources */,
