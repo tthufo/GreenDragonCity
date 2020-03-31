@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="bottomHeight" destination="x7n-Fr-fgR" id="msb-WY-gRQ"/>
                 <outlet property="playerView" destination="UpJ-nY-mNR" id="g68-eg-LKg"/>
+                <outlet property="sound" destination="hAB-qi-lAB" id="fLc-GK-aGN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

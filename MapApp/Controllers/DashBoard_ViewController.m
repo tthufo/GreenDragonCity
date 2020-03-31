@@ -28,6 +28,8 @@
     
     IBOutlet UIView * playerView;
     
+    IBOutlet UIButton * sound;
+    
     AVPlayer * avPlayer;
     
     BOOL isOn;
@@ -81,6 +83,8 @@
 
                // *** Register observer for events of AVPlayer status ***
                [avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+               
+               [playerView bringSubviewToFront:sound];
            }
            else
            {
@@ -184,6 +188,8 @@
 - (IBAction)didPressSound:(UIButton *)sender {
     
     [sender setImage:[UIImage imageNamed: isOn ? @"sound_in" : @"sound_ac"] forState:UIControlStateNormal];
+    
+    [avPlayer setMuted:isOn];
     
     isOn = !isOn;
 }
