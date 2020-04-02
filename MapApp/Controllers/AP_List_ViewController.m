@@ -54,6 +54,8 @@
     
     [tableView withCell:@"Option_Cell_New"];
     
+    [tableView withCell:@"Option_Cell"];
+    
     if([label isEqualToString:@"TIN TỨC"])
     {
         [[LTRequest sharedInstance] didRequestInfo:@{@"CMD_CODE":@"api/news",
@@ -163,13 +165,13 @@
 //        [(UIImageView*)[self withView:cell tag:11] imageUrl:[dataList[indexPath.row][@"avatar"] encodeUrl]];
 //    }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Option_Cell_New" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: [label isEqualToString:@"Sản phẩm"] ? @"Option_Cell" : @"Option_Cell_New" forIndexPath:indexPath];
 
     NSDictionary * dict = dataList[indexPath.row];
        
     UIButton * menu = (UIButton*)[self withView:cell tag:12];
           
-      [menu setTitle:[NSString stringWithFormat:@"             %@", dict[@"description"]] forState:UIControlStateNormal];
+    [menu setTitle:[NSString stringWithFormat: [label isEqualToString:@"Sản phẩm"] ? @"  %@" : @"             %@", dict[@"description"]] forState:UIControlStateNormal];
 
       UIView * view = (UIView*)[self withView:cell tag:155];
       
@@ -192,7 +194,7 @@
 - (void)didPressRow:(NSIndexPath*)indexPath {
     NSString * content = dataList[indexPath.row][@"url"];
        
-       if([label isEqualToString:@"VIDEOS"])
+       if([label isEqualToString:@"Video"])
        {
            [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:[self link:content] completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
                

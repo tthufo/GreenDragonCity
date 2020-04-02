@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DashBoard_ViewController : UIViewController
 
+- (void)replayVideo;
+
 @end
 
 NS_ASSUME_NONNULL_END

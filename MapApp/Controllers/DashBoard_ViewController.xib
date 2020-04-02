@@ -11,9 +11,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashBoard_ViewController">
             <connections>
                 <outlet property="bottomHeight" destination="x7n-Fr-fgR" id="msb-WY-gRQ"/>
+                <outlet property="cdt" destination="qKN-MO-Jq4" id="mtp-5B-jWz"/>
+                <outlet property="gt" destination="WQN-Ym-my5" id="t3w-uP-tZd"/>
                 <outlet property="playerView" destination="UpJ-nY-mNR" id="g68-eg-LKg"/>
+                <outlet property="qm" destination="8DM-Dv-l6R" id="T8c-J1-u9b"/>
                 <outlet property="sound" destination="hAB-qi-lAB" id="fLc-GK-aGN"/>
+                <outlet property="sp" destination="BQv-SF-sbo" id="kwd-nm-AJI"/>
+                <outlet property="ti" destination="L8B-wA-jXN" id="F8O-g6-ALz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vt" destination="Pcf-HP-Qur" id="kTi-XJ-EtF"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -37,12 +43,9 @@
                                 <constraint firstAttribute="width" constant="37" id="KSI-fj-VTT"/>
                             </constraints>
                         </activityIndicatorView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAB-qi-lAB">
-                            <rect key="frame" x="8" y="138" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="EQz-Ag-cPX"/>
-                                <constraint firstAttribute="height" constant="40" id="KXT-E6-8sR"/>
-                            </constraints>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAB-qi-lAB">
+                            <rect key="frame" x="272" y="8" width="40" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="sound_ac"/>
                             <connections>
                                 <action selector="didPressSound:" destination="-1" eventType="touchUpInside" id="7q8-AZ-c7s"/>
@@ -54,8 +57,6 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="186" id="3Nm-jP-J1P"/>
                         <constraint firstItem="IjZ-WT-Gaj" firstAttribute="centerX" secondItem="UpJ-nY-mNR" secondAttribute="centerX" id="Oxg-K4-uZL"/>
                         <constraint firstItem="IjZ-WT-Gaj" firstAttribute="centerY" secondItem="UpJ-nY-mNR" secondAttribute="centerY" id="fTg-AF-IvK"/>
-                        <constraint firstItem="hAB-qi-lAB" firstAttribute="leading" secondItem="UpJ-nY-mNR" secondAttribute="leading" constant="8" id="sY0-1R-HcY"/>
-                        <constraint firstAttribute="bottom" secondItem="hAB-qi-lAB" secondAttribute="bottom" constant="8" id="vJt-aA-epe"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6l-4u-c6C">
@@ -71,7 +72,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_gt_nm"/>
                                             <connections>
-                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="eUV-8E-zti"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="FGx-vW-GPa"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -90,7 +91,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="53" height="60"/>
                                             <state key="normal" image="ic_bt_qm_nm"/>
                                             <connections>
-                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="1o8-wM-KCq"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="iGs-tN-OAz"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -109,7 +110,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_vt_nm"/>
                                             <connections>
-                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="hnw-Ek-c9w"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="Xaa-aX-p4w"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -128,7 +129,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_sp_nm"/>
                                             <connections>
-                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="WvH-NR-bgF"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="pOY-Tw-Cqg"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -147,7 +148,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="53" height="60"/>
                                             <state key="normal" image="ic_bt_ti_nm"/>
                                             <connections>
-                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="QIH-qX-3ew"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="Kj8-Qg-dJm"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -166,7 +167,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="60"/>
                                             <state key="normal" image="ic_bt_cdt_nm"/>
                                             <connections>
-                                                <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="7PJ-Dr-dC5"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="F3q-8H-yVs"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -186,7 +187,7 @@
                         </stackView>
                         <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRs-ug-Dkj">
                             <rect key="frame" x="70" y="76" width="180" height="44"/>
-                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.043137254899999998" green="0.2666666667" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="39P-Oi-7wR"/>
                                 <constraint firstAttribute="width" constant="180" id="ncK-dB-6AS"/>
@@ -226,7 +227,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4d-lq-UtR">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
-                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.043137254899999998" green="0.2666666667" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="EWt-k6-nH8"/>
                             </constraints>
@@ -251,14 +252,16 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" clipsSubviews="YES" tag="18" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-jo-UwK">
+                                        <button opaque="NO" clipsSubviews="YES" tag="18" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-jo-UwK">
                                             <rect key="frame" x="0.0" y="0.0" width="76" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="Ảnh">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
                                                 <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="v5c-cX-dQ1"/>
+                                                <action selector="touchDown:" destination="-1" eventType="touchDown" id="Ffh-WB-Ldq"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="5vS-88-dQg"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -291,14 +294,16 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" clipsSubviews="YES" tag="19" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv4-8Q-gbt">
+                                        <button opaque="NO" clipsSubviews="YES" tag="19" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv4-8Q-gbt">
                                             <rect key="frame" x="0.0" y="0.0" width="75.5" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="Video">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
                                                 <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="Lgu-Ro-hVV"/>
+                                                <action selector="touchDown:" destination="-1" eventType="touchDown" id="LfT-Kg-tjZ"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="O5n-oD-yUE"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -331,14 +336,16 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" clipsSubviews="YES" tag="20" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bee-zy-H1b">
+                                        <button opaque="NO" clipsSubviews="YES" tag="20" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bee-zy-H1b">
                                             <rect key="frame" x="0.0" y="0.0" width="76" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="360 Tour">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
                                                 <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="fUm-Jg-P6F"/>
+                                                <action selector="touchDown:" destination="-1" eventType="touchDown" id="G8u-H2-eP5"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="EbA-Dk-O9l"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -371,15 +378,17 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <button opaque="NO" clipsSubviews="YES" tag="21" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAV-e4-7vO">
+                                        <button opaque="NO" clipsSubviews="YES" tag="21" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAV-e4-7vO">
                                             <rect key="frame" x="0.0" y="0.0" width="75.5" height="130"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="Tài liệu bán hàng">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                             </state>
                                             <connections>
                                                 <action selector="didPressButton:" destination="-1" eventType="touchUpInside" id="kTa-kn-6Od"/>
+                                                <action selector="touchDown:" destination="-1" eventType="touchDown" id="jrr-KN-mmb"/>
+                                                <action selector="touchDragExit:" destination="-1" eventType="touchDragExit" id="xa1-tg-iwN"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -441,7 +450,7 @@
         <image name="ic_bt_qm_nm" width="45" height="48.5"/>
         <image name="ic_bt_sp_nm" width="45" height="48.5"/>
         <image name="ic_bt_ti_nm" width="45" height="48.5"/>
-        <image name="ic_bt_vt_nm" width="37.5" height="47"/>
+        <image name="ic_bt_vt_nm" width="45" height="48.5"/>
         <image name="main_ic_duan" width="339" height="89"/>
         <image name="sound_ac" width="42.5" height="42.5"/>
     </resources>

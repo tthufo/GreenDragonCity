@@ -856,7 +856,7 @@
 - (IBAction)didPressVideo:(id)sender {
     AP_List_ViewController * list = [AP_List_ViewController new];
     
-    list.label = @"VIDEOS";
+    list.label = @"Video";
     
     [self.navigationController pushViewController:list animated:YES];
 }
