@@ -82,16 +82,16 @@
 
 - (UIView*)didCreateMenuView:(NSDictionary*)dict
 {
-    BOOL show = NO;//; [[ObjectInfo shareInstance].login isEqualToString:@"Yes"];
-    
-    UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, show ? 215 : 186)];
+    BOOL show = ![[ObjectInfo shareInstance].login isEqualToString:@"Yes"];
+        
+    UIView *commentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, show ? 130 : 186)];
     
     [commentView withBorder:@{@"Bcolor":[UIColor whiteColor],@"Bcorner":@(5),@"Bwidth":@(0)}];
     
-    UIView *contentView = [[NSBundle mainBundle] loadNibNamed:@"EM_Menu" owner:self options:nil][show ? 0 : 4];
+    UIView *contentView = [[NSBundle mainBundle] loadNibNamed:@"EM_Menu" owner:self options:nil][show ? 5 : 4];
     
     contentView.frame = CGRectMake(0, 0, commentView.frame.size.width, commentView.frame.size.height);
-    
+        
     [(UIButton*)[self withView:contentView tag:10] actionForTouch:@{} and:^(NSDictionary *touchInfo) {
         
         [self close];

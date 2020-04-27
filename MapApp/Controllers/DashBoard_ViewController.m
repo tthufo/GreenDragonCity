@@ -24,7 +24,7 @@
 
 @interface DashBoard_ViewController ()
 {
-    IBOutlet NSLayoutConstraint * bottomHeight;
+    IBOutlet NSLayoutConstraint * bottomHeight, * videoHeight, * logoHeight;
     
     IBOutlet UIView * playerView;
     
@@ -42,12 +42,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    bottomHeight.constant = [self screenHeight] * 0.3;
+    bottomHeight.constant = [self screenHeight] * 0.26;
     
+    videoHeight.constant =  [self screenWidth] * 9 / 16;
+    
+//    logoHeight.constant = [self screenHeight] - ([self screenWidth] * 9 / 16) - ([self isIphoneX] ? 250 : 200) - ([self screenHeight] * 0.26);
+
     isOn = YES;
     
     NSString * ident = [self link: @"https://www.youtube.com/watch?v=wfOmJmopka0&feature=youtu.be"];
-       
+
        [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:ident completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
 
            if (video)
@@ -63,14 +67,24 @@
                // *** Initialise AVPlayer ***
                avPlayer = [AVPlayer playerWithPlayerItem:playerItem];
 
+
+//               AVURLAsset *ass = [AVURLAsset URLAssetWithURL:streamURL options:nil];
+//               NSArray *tracks = [ass tracksWithMediaType:AVMediaTypeVideo];
+//               AVAssetTrack *track = [tracks objectAtIndex:0];
+//
+//               CGSize mediaSize = track.naturalSize;
+
+//               NSLog(@"-->%f ==>%f", mediaSize.width, mediaSize.height );
+
+               
                // *** Add AVPlayer to ViewController ***
                AVPlayerLayer *avPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
-               avPlayerLayer.frame = CGRectMake(0, 0, [self screenWidth], playerView.frame.size.height);
+               avPlayerLayer.frame = CGRectMake(0, 0, [self screenWidth], [self screenWidth] * 9 / 16);
                [avPlayerLayer setBackgroundColor:[UIColor clearColor].CGColor];
-               
+
                [playerView.layer addSublayer:avPlayerLayer];
 
-               avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+//               avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 
                // *** Start Playback ***
                [avPlayer play];
@@ -83,7 +97,7 @@
 
                // *** Register observer for events of AVPlayer status ***
                [avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
-               
+
                [playerView bringSubviewToFront:sound];
            }
            else
@@ -206,6 +220,70 @@
         [cdt setImage:[UIImage imageNamed:@"ic_bt_cdt_active"] forState:UIControlStateNormal];
     }];
 }
+
+//-(void)viewDidAppear:(BOOL)animated {
+//
+//    [super viewDidAppear: animated];
+//
+//    videoHeight.constant =  100;// [self screenWidth] * 9 / 16;
+//
+//
+//     NSString * ident = [self link: @"https://www.youtube.com/watch?v=wfOmJmopka0&feature=youtu.be"];
+//
+//           [[XCDYouTubeClient defaultClient] getVideoWithIdentifier:ident completionHandler:^(XCDYouTubeVideo * _Nullable video, NSError * _Nullable error) {
+//
+//               if (video)
+//               {
+//                   NSDictionary *streamURLs = video.streamURLs;
+//                   NSURL *streamURL = streamURLs[@(XCDYouTubeVideoQualityMedium360)] ;
+//
+//                   AVAsset *asset = [AVAsset assetWithURL: streamURL];
+//
+//                       // *** Create AVPlayerItem using AVAsset ***
+//                   AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithAsset:asset];
+//
+//                   // *** Initialise AVPlayer ***
+//                   avPlayer = [AVPlayer playerWithPlayerItem:playerItem];
+//
+//
+//    //               AVURLAsset *ass = [AVURLAsset URLAssetWithURL:streamURL options:nil];
+//    //               NSArray *tracks = [ass tracksWithMediaType:AVMediaTypeVideo];
+//    //               AVAssetTrack *track = [tracks objectAtIndex:0];
+//    //
+//    //               CGSize mediaSize = track.naturalSize;
+//
+//    //               NSLog(@"-->%f ==>%f", mediaSize.width, mediaSize.height );
+//
+//                   // *** Add AVPlayer to ViewController ***
+//                   AVPlayerLayer *avPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
+//                   avPlayerLayer.frame = CGRectMake(0, 0, [self screenWidth], [self screenWidth] * 9 / 16);
+//                   [avPlayerLayer setBackgroundColor:[UIColor clearColor].CGColor];
+//
+//                   [playerView.layer addSublayer:avPlayerLayer];
+//
+//    //               avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+//
+//                   // *** Start Playback ***
+//                   [avPlayer play];
+//
+//               //     *** Register for playback end notification ***
+//                   [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                            selector:@selector(playerItemDidReachEnd:)
+//                                                                name:AVPlayerItemDidPlayToEndTimeNotification
+//                                                              object:[avPlayer currentItem]];
+//
+//                   // *** Register observer for events of AVPlayer status ***
+//                   [avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+//
+//                   [playerView bringSubviewToFront:sound];
+//               }
+//               else
+//               {
+//                   NSLog(@"ko dc");
+//               }
+//           }];
+//}
+
 
 - (IBAction)touchDragExit:(UIButton*)sender {
     switch (sender.tag) {
