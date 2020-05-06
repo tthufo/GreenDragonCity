@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AP_Map_ViewController">
             <connections>
                 <outlet property="bar" destination="Lv0-xQ-xjp" id="NmI-48-DLE"/>
+                <outlet property="changeMap" destination="6QW-1k-U7W" id="W5b-Kf-Ta3"/>
                 <outlet property="hand" destination="dle-z9-adg" id="mj1-x1-JXy"/>
                 <outlet property="logos" destination="LI6-PQ-SCB" id="Qv2-Ju-aIz"/>
                 <outlet property="mapView" destination="tSa-wM-tew" id="WKa-ph-axW"/>
@@ -99,18 +100,18 @@
                                         <action selector="didPressImages" destination="-1" eventType="touchUpInside" id="zyi-ec-da8"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QW-1k-U7W" customClass="DropButton">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QW-1k-U7W" customClass="DropButton">
                                     <rect key="frame" x="228" y="10" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="8Md-dy-UHW"/>
                                         <constraint firstAttribute="width" constant="40" id="bvv-8N-qLc"/>
                                     </constraints>
-                                    <state key="normal" image="image_trang"/>
+                                    <state key="normal" image="ic_show_compass_zodiac"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="pListName" value="format"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="didPressImages" destination="-1" eventType="touchUpInside" id="uvI-ka-Xif"/>
+                                        <action selector="didPressMap:" destination="-1" eventType="touchUpInside" id="viZ-tX-FPE"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -468,6 +469,7 @@
         <image name="comp" width="170.5" height="170.5"/>
         <image name="dot" width="85" height="85"/>
         <image name="hands" width="170.5" height="170.5"/>
+        <image name="ic_show_compass_zodiac" width="105.5" height="103.5"/>
         <image name="icon_globe_white" width="555.5" height="555.5"/>
         <image name="icon_menu_map" width="170.5" height="170.5"/>
         <image name="icon_off_overlay" width="170.5" height="170.5"/>

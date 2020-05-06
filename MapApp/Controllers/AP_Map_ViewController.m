@@ -314,6 +314,16 @@
     [logos actionForTouch:@{} and:^(NSDictionary *touchInfo) {
         [self.navigationController popViewControllerAnimated:YES];
     }];
+    
+    changeMap.alpha = [self logged] ? 1 : 0;
+    
+    if ([self logged]) {
+        [self didPressLocation:nil];
+    }
+}
+
+- (BOOL)logged {
+    return [[ObjectInfo shareInstance].login isEqualToString:@"No"];
 }
 
 -(void)OrientationDidChange:(NSNotification*)notification
@@ -476,7 +486,7 @@
     
     if(![geoJson isEqualToString:@""])
     {
-        [self didGotoPosition:lat andLong:lng andZoom:18];
+        [self didGotoPosition:lat andLong:lng andZoom: [info isEqualToString:@""] ? 18 : mapView.camera.zoom];
     }
     
     if(polyMarker)
@@ -1041,7 +1051,7 @@
         geoDirectionString = sign[7]; // @"2"; //Tây Bắc
     }
     
-    mainMarker.icon = [UIImage imageNamed:[[self getObject:@"setting"][@"show"] boolValue] ? geoDirectionString : @"blue"];
+    mainMarker.icon = [UIImage imageNamed:[[self getObject:@"setting"][@"show"] boolValue] ? geoDirectionString : @"trans"];
 }
 
 - (float)lat
@@ -1058,7 +1068,7 @@
 {
     mainMarker = [[GMSMarker alloc] init];
     mainMarker.position = CLLocationCoordinate2DMake(lat, lng);
-    mainMarker.icon = [UIImage imageNamed:@"blue"];
+    mainMarker.icon = [UIImage imageNamed:@"trans"];
     mainMarker.map = mapView;
 }
 
@@ -1135,9 +1145,13 @@
 
 - (IBAction)didPressLocation:(UIButton*)sender
 {
-    mainMarker.position = CLLocationCoordinate2DMake([self lat], [self lng]);
+    float lat = [self logged] ? 20.9986 : [self lat];
     
-    [self didGotoPosition:[self lat] andLong:[self lng] andZoom:15];
+    float lng = [self logged] ? 107.2759 : [self lng];
+
+    mainMarker.position = CLLocationCoordinate2DMake(lat, lng);
+    
+    [self didGotoPosition:lat andLong:lng andZoom:15];
 }
 
 - (IBAction)didPressMapLayer:(UIButton*)sender

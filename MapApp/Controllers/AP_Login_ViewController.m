@@ -93,7 +93,7 @@
 
     [phone setAttributedPlaceholder:attributedPlaceholder2];
     
-    if ([[NSDate date] isPastTime:@"4/5/2020"]) {
+    if ([[NSDate date] isPastTime:@"9/5/2020"]) {
         [ObjectInfo shareInstance].login = @"Yes";
         tableView.alpha = 1;
     } else {

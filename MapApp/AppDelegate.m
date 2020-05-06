@@ -38,6 +38,12 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }
     
+    NSMutableDictionary * dict = [[self getObject:@"setting"] reFormat];
+    
+    dict[@"show"] = @"0";
+    
+    [self addObject:dict andKey:@"setting"];
+    
     AP_Login_ViewController * login = [AP_Login_ViewController new];
     
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];

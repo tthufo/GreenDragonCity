@@ -175,7 +175,7 @@
 		FC65D81A23BB5DF100B7CCE3 /* DG_Options_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DG_Options_ViewController.h; sourceTree = "<group>"; };
 		FC65D81B23BB5DF100B7CCE3 /* DG_Options_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DG_Options_ViewController.m; sourceTree = "<group>"; };
 		FC65D81C23BB5DF100B7CCE3 /* DG_Options_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DG_Options_ViewController.xib; sourceTree = "<group>"; };
-		FC722186207B51D30058429E /* Green Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Green Dragon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC722186207B51D30058429E /* Green Dragon Land.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Green Dragon Land.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC722189207B51D30058429E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FC72218A207B51D30058429E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FC72218C207B51D30058429E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 		FC722187207B51D30058429E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC722186207B51D30058429E /* Green Dragon.app */,
+				FC722186207B51D30058429E /* Green Dragon Land.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,7 +444,7 @@
 			);
 			name = MapApp;
 			productName = MapApp;
-			productReference = FC722186207B51D30058429E /* Green Dragon.app */;
+			productReference = FC722186207B51D30058429E /* Green Dragon Land.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -750,10 +750,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Distribution: 3D ART DESIGN CONSULTANCY AND TECHNOLOGY SOLUTION JOINT STOCK COMPANY (3L2APQ2D3U)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: VIETGIS - GIS SOLUTION AND TECHNOLOGY COMPANY LIMITED (GAJPP6PZBM)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 40;
-				DEVELOPMENT_TEAM = 3L2APQ2D3U;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = GAJPP6PZBM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MapApp",
@@ -764,10 +764,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = ios.vn.gdra;
-				PRODUCT_NAME = "Green Dragon";
+				PRODUCT_BUNDLE_IDENTIFIER = ios.re.land;
+				PRODUCT_NAME = "Green Dragon Land";
 				PROVISIONING_PROFILE = "2a826cdd-01ac-4c5b-aefc-bdda775b99da";
-				PROVISIONING_PROFILE_SPECIFIER = gdDis;
+				PROVISIONING_PROFILE_SPECIFIER = Land;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -781,10 +781,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Distribution: 3D ART DESIGN CONSULTANCY AND TECHNOLOGY SOLUTION JOINT STOCK COMPANY (3L2APQ2D3U)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: VIETGIS - GIS SOLUTION AND TECHNOLOGY COMPANY LIMITED (GAJPP6PZBM)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 40;
-				DEVELOPMENT_TEAM = 3L2APQ2D3U;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = GAJPP6PZBM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MapApp",
@@ -795,10 +795,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = ios.vn.gdra;
-				PRODUCT_NAME = "Green Dragon";
+				PRODUCT_BUNDLE_IDENTIFIER = ios.re.land;
+				PRODUCT_NAME = "Green Dragon Land";
 				PROVISIONING_PROFILE = "2a826cdd-01ac-4c5b-aefc-bdda775b99da";
-				PROVISIONING_PROFILE_SPECIFIER = gdDis;
+				PROVISIONING_PROFILE_SPECIFIER = Land;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
