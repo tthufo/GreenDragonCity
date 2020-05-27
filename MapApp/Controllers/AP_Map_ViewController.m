@@ -1068,7 +1068,7 @@
 {
     mainMarker = [[GMSMarker alloc] init];
     mainMarker.position = CLLocationCoordinate2DMake(lat, lng);
-    mainMarker.icon = [UIImage imageNamed:@"trans"];
+    mainMarker.icon = [UIImage imageNamed:[self logged] ? @"trans" : @"blue"];
     mainMarker.map = mapView;
 }
 
@@ -1144,7 +1144,7 @@
 }
 
 - (IBAction)didPressLocation:(UIButton*)sender
-{
+{    
     float lat = [self logged] ? 20.9986 : [self lat];
     
     float lng = [self logged] ? 107.2759 : [self lng];

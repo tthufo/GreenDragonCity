@@ -57,7 +57,7 @@
     @"title_down":@"#00783C",
     @"title_up":@"#ffffff"
   },
-  @{@"img":@"folder_xanh", @"title":@"TÀI LIỆU BÁN HÀNG",
+  @{@"img":@"folder_xanh", @"title":@"TIN TỨC",
     @"img_down":@"folder_trang",
     @"title_down":@"#00783C",
     @"title_up":@"#ffffff"
@@ -183,13 +183,15 @@
                 break;
             case 4:
             {
-                AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
-                
-                web.label = @"Tài liệu bán hàng";
-                
-                web.url = @"https://drive.google.com/drive/u/0/folders/1ffzdlFMJFqpnMb7TjBQaNDbnH2EZfdNT";
-                
-                [self.navigationController pushViewController:web animated:YES];
+                [self.navigationController pushViewController:list animated:YES];
+
+//                AP_Web_List_ViewController * web = [AP_Web_List_ViewController new];
+//
+//                web.label = @"Tài liệu bán hàng";
+//
+//                web.url = @"https://drive.google.com/drive/u/0/folders/1ffzdlFMJFqpnMb7TjBQaNDbnH2EZfdNT";
+//
+//                [self.navigationController pushViewController:web animated:YES];
             }
                 break;
             default:

@@ -52,17 +52,17 @@
         [self.view endEditing:YES];
     }];
     
-    if([[self getValue:@"check"] isEqualToString:@"1"])
-    {
-        uName.text = [self getValue:@"name"];
-
-        pass.text = [self getValue:@"pass"];
-
-        if([self getValue:@"name"] && [self getValue:@"pass"] && ![[self getValue:@"name"] isEqualToString:@""] && ![[self getValue:@"pass"] isEqualToString:@""])
-        {
-            [self didRequestLogin];
-        }
-    }
+//    if([[self getValue:@"check"] isEqualToString:@"1"])
+//    {
+//        uName.text = [self getValue:@"name"];
+//
+//        pass.text = [self getValue:@"pass"];
+//
+//        if([self getValue:@"name"] && [self getValue:@"pass"] && ![[self getValue:@"name"] isEqualToString:@""] && ![[self getValue:@"pass"] isEqualToString:@""])
+//        {
+//            [self didRequestLogin];
+//        }
+//    }
     
     [self didGoToMap];
     
@@ -93,11 +93,22 @@
 
     [phone setAttributedPlaceholder:attributedPlaceholder2];
     
-    if ([[NSDate date] isPastTime:@"9/5/2020"]) {
+    if ([[NSDate date] isPastTime:@"01/06/2020"]) {
         [ObjectInfo shareInstance].login = @"Yes";
         tableView.alpha = 1;
+        if([[self getValue:@"check"] isEqualToString:@"1"])
+        {
+            uName.text = [self getValue:@"name"];
+
+            pass.text = [self getValue:@"pass"];
+
+            if([self getValue:@"name"] && [self getValue:@"pass"] && ![[self getValue:@"name"] isEqualToString:@""] && ![[self getValue:@"pass"] isEqualToString:@""])
+            {
+                [self didRequestLogin];
+            }
+        }
     } else {
-        [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"https://dl.dropboxusercontent.com/s/h8616h5lhg705l7/GreenDragon.plist",@"overrideError":@(1),@"overrideLoading":@(1),@"host":self} withCache:^(NSString *cacheString) {
+         [[LTRequest sharedInstance] didRequestInfo:@{@"absoluteLink":@"https://dl.dropboxusercontent.com/s/3owdio2kn9npxir/GreenDragon3.plist",@"overrideError":@(1),@"overrideLoading":@(1),@"host":self} withCache:^(NSString *cacheString) {
         } andCompletion:^(NSString *responseString, NSString *errorCode, NSError *error, BOOL isValidated, NSDictionary *header) {
 
             if(!isValidated)
@@ -106,7 +117,7 @@
 
                 return ;
             }
-
+            
             NSData *data = [responseString dataUsingEncoding:NSUTF8StringEncoding];
             NSError * er = nil;
             NSDictionary *dict = [self returnDictionary:[XMLReader dictionaryForXMLData:data
@@ -128,7 +139,19 @@
 
                 [ObjectInfo shareInstance].token = [strFileContent objectFromJSONString][@"access_token"];
 
-                [self.navigationController pushViewController:[DashBoard_ViewController new] animated:NO];
+                [self.navigationController pushViewController:[[ObjectInfo shareInstance].login isEqualToString:@"Yes"] ? [DashBoard_ViewController new] : [AP_New_Main_ViewController new] animated:NO];
+            } else {
+                if([[self getValue:@"check"] isEqualToString:@"1"])
+                {
+                    uName.text = [self getValue:@"name"];
+
+                    pass.text = [self getValue:@"pass"];
+
+                    if([self getValue:@"name"] && [self getValue:@"pass"] && ![[self getValue:@"name"] isEqualToString:@""] && ![[self getValue:@"pass"] isEqualToString:@""])
+                    {
+                        [self didRequestLogin];
+                    }
+                }
             }
         }];
     }
@@ -270,8 +293,9 @@
                                                                  [self removeValue:@"pass"];
                                                              }
                                                              
-                                                             [self.navigationController pushViewController:[DashBoard_ViewController new] animated:YES];
-//                                                             [self.navigationController pushViewController:[AP_Map_ViewController new] animated:YES];
+//                                                             [self.navigationController pushViewController:[DashBoard_ViewController new] animated:YES];
+                                                             [self.navigationController pushViewController:[[ObjectInfo shareInstance].login isEqualToString:@"Yes"] ? [DashBoard_ViewController new] : [AP_New_Main_ViewController new] animated:YES];
+                                                             
                                                          }
                                                          
                                                          break;

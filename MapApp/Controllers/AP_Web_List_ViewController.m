@@ -38,6 +38,8 @@
     if(content)
     {
         [webView loadHTMLString:content baseURL:nil];
+        
+        NSLog(@"%@", content);
     }
     else
     {
